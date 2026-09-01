@@ -1,0 +1,113 @@
+---
+import Base from '../../layouts/Base.astro';
+---
+
+<Base
+  title="Contact · Facundo Corbalan, SAP HCM and ECP consultant"
+  description="Tell me about your SAP payroll project. I reply within 24 to 48 working hours."
+  lang="en"
+  active=""
+  esPath="/contacto/"
+  enPath="/en/contact/"
+>
+  <section class="hero" style="padding-bottom:32px">
+    <div class="wrap">
+      <p class="eyebrow">Contact</p>
+      <h1>Tell me about your case</h1>
+      <p class="lead narrow">
+        The more context you give me (payroll country, headcount, current system and where the project stands), the more
+        useful my answer will be. I reply within 24 to 48 working hours.
+      </p>
+    </div>
+  </section>
+
+  <section class="tight">
+    <div class="wrap">
+      <div class="grid grid-2" style="gap:48px">
+        <div>
+          <form
+            class="contact"
+            name="contact-en"
+            method="POST"
+            data-netlify="true"
+            netlify-honeypot="company-web"
+            action="/en/thanks/"
+          >
+            <input type="hidden" name="form-name" value="contact-en" />
+            <p style="display:none"><label>Leave empty: <input name="company-web" /></label></p>
+
+            <label>Name<input type="text" name="name" required autocomplete="name" /></label>
+            <label>Email<input type="email" name="email" required autocomplete="email" /></label>
+            <label>Company<input type="text" name="company" autocomplete="organization" /></label>
+
+            <label>
+              What do you need?
+              <select name="type">
+                <option>ECP implementation or migration</option>
+                <option>Payroll audit</option>
+                <option>Functional lead for a project</option>
+                <option>Support and enhancements (AMS)</option>
+                <option>Something else</option>
+              </select>
+            </label>
+
+            <label>
+              Context
+              <textarea
+                name="message"
+                required
+                placeholder="Payroll country, headcount, current system and where the project stands."
+              ></textarea>
+            </label>
+
+            <label class="small" style="flex-direction:row;display:flex;gap:10px;align-items:flex-start;font-weight:400">
+              <input type="checkbox" name="privacy" required style="width:auto;margin-top:3px" />
+              <span>I have read and accept the <a href="/en/privacy/">privacy policy</a>.</span>
+            </label>
+
+            <div><button class="btn btn-primary" type="submit">Send</button></div>
+          </form>
+        </div>
+
+        <div>
+          <div class="card">
+            <h3>Direct</h3>
+            <p class="small muted" style="margin-bottom:6px">Email</p>
+            <p><a href="mailto:facundo@facundocorbalan.com">facundo@facundocorbalan.com</a></p>
+            <p class="small muted" style="margin-bottom:6px">Phone</p>
+            <p><a href="tel:+34614268385">+34 614 268 385</a></p>
+            <p class="small muted" style="margin-bottom:6px">WhatsApp</p>
+            <p>
+              <a
+                class="btn btn-wa"
+                href="https://wa.me/34614268385?text=Hi%20Facundo%2C%20I%20found%20your%20website%20and%20I%20would%20like%20to%20talk%20about%20a%20SAP%20payroll%20project."
+                target="_blank"
+                rel="noopener">Message me on WhatsApp</a
+              >
+            </p>
+            <p class="small muted" style="margin:16px 0 6px">LinkedIn</p>
+            <p><a href="https://www.linkedin.com/in/facundocorbalan/" target="_blank" rel="noopener">/in/facundocorbalan</a></p>
+          </div>
+
+          <div class="card" style="margin-top:20px">
+            <h3>Rather talk it through?</h3>
+            <p class="small muted">Book a 30-minute call straight into my calendar, no form needed.</p>
+            <p style="margin-bottom:0">
+              <a class="btn btn-ghost" href="https://calendly.com/facundocorbalan" target="_blank" rel="noopener">Book a call</a>
+            </p>
+          </div>
+
+          <div class="card" style="margin-top:20px">
+            <h3>How I operate</h3>
+            <ul>
+              <li>Registered self-employed in Spain, invoicing across the EU and LATAM</li>
+              <li>€1M professional liability insurance</li>
+              <li>100% remote, with occasional meetings in Madrid</li>
+              <li>Availability negotiable or immediate depending on scope</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+</Base>

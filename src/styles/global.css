@@ -546,6 +546,30 @@ section.tight {
   font-size: 0.88rem;
 }
 
+/* --- Banda de confianza y casos ----------------------------------------- */
+
+.trust-line {
+  margin-top: 24px;
+  margin-bottom: 0;
+  text-align: center;
+}
+
+.case-line {
+  margin-bottom: 0.6em;
+}
+
+.case-line strong {
+  color: var(--text);
+}
+
+.case-stack {
+  margin-bottom: 0;
+  padding-top: 12px;
+  border-top: 1px solid var(--border);
+  font-size: 0.85rem;
+  letter-spacing: 0.02em;
+}
+
 /* --- Trayectoria -------------------------------------------------------- */
 
 .timeline {

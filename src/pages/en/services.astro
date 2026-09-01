@@ -8,7 +8,7 @@ const blocks = [
     title: 'Employee Central Payroll implementation and migration',
     para: 'For organisations starting a SAP payroll project from scratch, or migrating their on-premise SAP HCM to ECP.',
     outcome:
-      'A system that calculates correctly from month one, and that your team can maintain without depending on whoever built it.',
+      'A controlled go-live, with a payroll that is stable, traceable and maintainable by the in-house team.',
     includes: [
       'Functional scope definition and gap analysis against the ECP standard',
       'PA configuration: enterprise structure, infotypes, features, constants and posting',
@@ -19,8 +19,23 @@ const blocks = [
     ],
   },
   {
-    id: 'audit',
+    id: 'expert-support',
     soft: true,
+    title: 'ECP expert support / L3 on demand',
+    para: 'For AMS teams, partners or clients already running ECP who need specialist escalation when an incident goes beyond standard functional support.',
+    outcome: 'Getting the hard problem solved without keeping a senior ECP consultant on full-time allocation.',
+    includes: [
+      'Complex ECP troubleshooting, analysed through to root cause',
+      'EC to ECP integration and the point-to-point interface (PTP)',
+      'Payroll Control Center and replication errors',
+      'Pay Statement and mashups',
+      'SSO and provisioning',
+      'Payroll result analysis and production escalations',
+    ],
+  },
+  {
+    id: 'audit',
+    soft: false,
     title: 'SAP payroll audit',
     para: 'For anyone who suspects something is off, has inherited an undocumented configuration, or wants a second opinion before a go-live.',
     outcome: 'Knowing exactly where the risk sits before it shows up on a payslip or in an inspection.',
@@ -34,7 +49,7 @@ const blocks = [
   },
   {
     id: 'functional-lead',
-    soft: false,
+    soft: true,
     title: 'Functional lead as a service',
     para: 'For partners and system integrators who need a payroll functional lead with judgement, without opening a permanent role.',
     outcome: 'A project with genuine functional direction, rather than a task split with nobody watching the whole.',
@@ -48,7 +63,7 @@ const blocks = [
   },
   {
     id: 'ams',
-    soft: true,
+    soft: false,
     title: 'Support and enhancements (AMS)',
     para: 'For live operations that need monthly continuity and the ability to react to legal changes.',
     outcome: 'Monthly closes without surprises, and a change history you can actually consult.',
@@ -72,12 +87,16 @@ const models = [
     d: 'An agreed monthly volume for support, enhancements and ad-hoc questions. For operations already running.',
   },
   { t: 'Day rate', d: 'Joining a team part-time or full-time, remotely, with occasional meetings in Madrid.' },
+  {
+    t: 'Advisory / expert on demand',
+    d: 'Discrete senior interventions with no fixed allocation, for escalations, audits, architecture decisions or critical incidents.',
+  },
 ];
 ---
 
 <Base
-  title="Services · Facundo Corbalan, SAP HCM and ECP consultant"
-  description="Employee Central Payroll implementation and migration, SAP payroll audits, functional lead as a service and AMS support."
+  title="SAP Payroll and ECP services · Facundo Corbalan"
+  description="Employee Central Payroll implementation and migration, SAP payroll audit, ECP L3 expert support, functional lead as a service and AMS support."
   lang="en"
   active="services"
   esPath="/servicios/"
@@ -117,7 +136,7 @@ const models = [
   <section>
     <div class="wrap">
       <h2 style="margin-top:0">Engagement models</h2>
-      <div class="grid grid-3" style="margin-top:28px">
+      <div class="grid grid-2" style="margin-top:28px">
         {models.map((m) => (
           <div class="card">
             <h3>{m.t}</h3>

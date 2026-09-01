@@ -1,0 +1,51 @@
+---
+// Cabecera del sitio. Cambia de idioma sin duplicar el marcado.
+const { lang = 'es', active = '', alt = '/' } = Astro.props;
+
+const es = lang === 'es';
+
+const home = es ? '/' : '/en/';
+const cta = es ? '/contacto/' : '/en/contact/';
+const ctaLabel = es ? 'Hablemos' : "Let's talk";
+
+const links = es
+  ? [
+      { key: 'home', href: '/', label: 'Inicio' },
+      { key: 'services', href: '/servicios/', label: 'Servicios' },
+      { key: 'about', href: '/sobre-mi/', label: 'Sobre mí' },
+      { key: 'blog', href: '/blog/', label: 'Blog' },
+    ]
+  : [
+      { key: 'home', href: '/en/', label: 'Home' },
+      { key: 'services', href: '/en/services/', label: 'Services' },
+      { key: 'about', href: '/en/about/', label: 'About' },
+      { key: 'blog', href: '/en/blog/', label: 'Blog' },
+    ];
+
+// El idioma al que lleva el conmutador es el contrario al de la página.
+const switchTo = es
+  ? { hreflang: 'en', long: 'English', short: 'EN' }
+  : { hreflang: 'es', long: 'Español', short: 'ES' };
+
+const wa = es
+  ? 'https://wa.me/34614268385?text=Hola%20Facundo%2C%20te%20escribo%20desde%20tu%20web%20por%20un%20proyecto%20de%20n%C3%B3mina%20SAP.'
+  : 'https://wa.me/34614268385?text=Hi%20Facundo%2C%20I%20found%20your%20website%20and%20I%20would%20like%20to%20talk%20about%20a%20SAP%20payroll%20project.';
+---
+
+<header class="site">
+  <div class="wrap inner">
+    <a class="brand" href={home}>Facundo Corbalan<span> · SAP HCM</span></a>
+    <nav class="main">
+      {links.map((l) => (
+        <a href={l.href} aria-current={active === l.key ? 'page' : undefined}>{l.label}</a>
+      ))}
+      <a class="lang-switch" href={alt} hreflang={switchTo.hreflang} lang={switchTo.hreflang}>
+        <span class="lang-long">{switchTo.long}</span><span class="lang-short">{switchTo.short}</span>
+      </a>
+      <a class="wa-link" href={wa} target="_blank" rel="noopener" aria-label="WhatsApp" title="WhatsApp">
+        <svg viewBox="0 0 24 24" width="18" height="18" aria-hidden="true" focusable="false"><path fill="currentColor" d="M17.47 14.38c-.3-.15-1.76-.87-2.03-.97-.27-.1-.47-.15-.67.15-.2.3-.77.97-.94 1.17-.17.2-.35.22-.65.07-.3-.15-1.26-.46-2.4-1.48-.89-.79-1.49-1.77-1.66-2.07-.17-.3-.02-.46.13-.61.13-.13.3-.35.45-.52.15-.17.2-.3.3-.5.1-.2.05-.37-.02-.52-.08-.15-.67-1.61-.92-2.2-.24-.58-.49-.5-.67-.51h-.57c-.2 0-.52.07-.79.37-.27.3-1.04 1.02-1.04 2.48s1.06 2.88 1.21 3.08c.15.2 2.1 3.2 5.08 4.49.71.3 1.26.49 1.69.63.71.22 1.36.19 1.87.12.57-.09 1.76-.72 2.01-1.41.25-.7.25-1.29.17-1.42-.07-.13-.27-.2-.57-.35M12.05 21.8h-.02c-1.75 0-3.47-.47-4.98-1.36l-.36-.21-3.7.97.99-3.61-.23-.37a9.86 9.86 0 0 1-1.51-5.26c0-5.45 4.44-9.88 9.9-9.88a9.82 9.82 0 0 1 6.99 2.9 9.81 9.81 0 0 1 2.9 6.99c0 5.45-4.44 9.88-9.98 9.88M20.5 3.49A11.78 11.78 0 0 0 12.05 0C5.5 0 .18 5.32.18 11.86c0 2.09.55 4.13 1.59 5.93L.08 24l6.36-1.67a11.85 11.85 0 0 0 5.61 1.43h.01c6.54 0 11.87-5.32 11.87-11.86 0-3.17-1.24-6.15-3.48-8.4"></path></svg>
+      </a>
+      <a class="btn btn-primary nav-cta" href={cta}>{ctaLabel}</a>
+    </nav>
+  </div>
+</header>

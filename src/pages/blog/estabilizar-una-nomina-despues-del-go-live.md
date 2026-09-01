@@ -40,6 +40,6 @@ Es el paso que siempre se salta y el que más se echa de menos tres meses despu�
 
 Contar incidencias abiertas por semana y compartir ese número con el cliente convierte una sensación (“esto no mejora”) en un dato. Y cuando la curva baja, que baja, ese mismo número es lo que permite cerrar formalmente la fase de estabilización en lugar de que se prolongue de forma indefinida.
 
-En Tenaris apliqué este enfoque sobre la nómina jornalizada de Argentina y las incidencias mensuales reportadas cayeron alrededor de un 70% en dos meses. No hubo ninguna técnica brillante: hubo agrupar, priorizar por impacto real, congelar el ruido y medir.
+En Tenaris apliqué este enfoque sobre la nómina jornalizada de Argentina y las incidencias mensuales reportadas cayeron de forma sostenida a lo largo de dos meses, hasta poder cerrar formalmente la estabilización. No hubo ninguna técnica brillante: hubo agrupar, priorizar por impacto real, congelar el ruido y medir.
 
 ¿Estás en plena estabilización y no ves la curva bajar? [Cuéntame el caso](/contacto/).

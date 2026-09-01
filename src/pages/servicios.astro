@@ -8,7 +8,7 @@ const bloques = [
     titulo: 'Implantación y migración a Employee Central Payroll',
     para: 'Para organizaciones que arrancan un proyecto de nómina SAP desde cero o que migran su SAP HCM on-premise a ECP.',
     resultado:
-      'Un sistema que calcula bien desde el primer mes y que tu equipo puede mantener sin depender de quien lo construyó.',
+      'Una salida a producción controlada, con una nómina estable, trazable y mantenible por el equipo interno.',
     incluye: [
       'Definición del alcance funcional y análisis de gaps frente al estándar ECP',
       'Configuración PA: estructura de empresa, infotipos, features, constantes y contabilización',
@@ -19,8 +19,24 @@ const bloques = [
     ],
   },
   {
-    id: 'auditoria',
+    id: 'soporte-experto',
     soft: true,
+    titulo: 'Soporte experto ECP / L3 on demand',
+    para: 'Para equipos AMS, partners o clientes que ya operan ECP y necesitan escalado especializado cuando una incidencia supera el soporte funcional habitual.',
+    resultado:
+      'Resolver el problema complejo sin mantener a un senior de ECP dedicado a tiempo completo.',
+    incluye: [
+      'Troubleshooting de ECP complejo, con análisis hasta la causa raíz',
+      'Integración EC a ECP y punto de integración (PTP)',
+      'Payroll Control Center y errores de replicación',
+      'Pay Statement y mashups',
+      'SSO y provisioning',
+      'Análisis de resultados de nómina y escalaciones en productivo',
+    ],
+  },
+  {
+    id: 'auditoria',
+    soft: false,
     titulo: 'Auditoría de nómina SAP',
     para: 'Para quien sospecha que algo no cuadra, hereda una configuración que nadie documentó o quiere una segunda opinión antes de un go-live.',
     resultado: 'Saber exactamente dónde está el riesgo antes de que aparezca en un recibo o en una inspección.',
@@ -34,7 +50,7 @@ const bloques = [
   },
   {
     id: 'lead-funcional',
-    soft: false,
+    soft: true,
     titulo: 'Lead funcional como servicio',
     para: 'Para partners e integradores que necesitan un responsable funcional de nómina con criterio, sin abrir una posición fija.',
     resultado: 'Un proyecto con dirección funcional real, no con un reparto de tareas sin nadie mirando el conjunto.',
@@ -48,7 +64,7 @@ const bloques = [
   },
   {
     id: 'ams',
-    soft: true,
+    soft: false,
     titulo: 'Soporte y evolutivos (AMS)',
     para: 'Para operaciones ya en marcha que necesitan continuidad mensual y capacidad de reacción ante cambios legales.',
     resultado: 'Cierres mensuales sin sobresaltos y un histórico de cambios que se puede consultar.',
@@ -75,12 +91,16 @@ const modelos = [
     t: 'Dedicación por jornada',
     d: 'Incorporación a un equipo con dedicación parcial o completa, en remoto y con reuniones puntuales en Madrid.',
   },
+  {
+    t: 'Advisory / Expert on demand',
+    d: 'Intervenciones senior puntuales, sin dedicación fija, para escalaciones, auditorías, decisiones de arquitectura o incidencias críticas.',
+  },
 ];
 ---
 
 <Base
-  title="Servicios · Facundo Corbalan, consultor SAP HCM y ECP"
-  description="Implantación y migración a Employee Central Payroll, auditoría de nómina SAP, lead funcional como servicio y soporte AMS."
+  title="Servicios: implantación ECP, auditoría de nómina y soporte L3 · Facundo Corbalan"
+  description="Implantación y migración a Employee Central Payroll, soporte experto ECP / L3, auditoría de nómina SAP, lead funcional como servicio y soporte AMS."
   lang="es"
   active="services"
   esPath="/servicios/"
@@ -120,7 +140,7 @@ const modelos = [
   <section>
     <div class="wrap">
       <h2 style="margin-top:0">Modelo de colaboración</h2>
-      <div class="grid grid-3" style="margin-top:28px">
+      <div class="grid grid-2" style="margin-top:28px">
         {modelos.map((m) => (
           <div class="card">
             <h3>{m.t}</h3>

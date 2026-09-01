@@ -10,6 +10,10 @@ const servicios = [
     d: 'De la definición del alcance al arranque en productivo: configuración PA y PY, esquemas y reglas, integración PTP entre Employee Central y ECP, Payroll Control Center y paralelos de nómina.',
   },
   {
+    t: 'Soporte experto ECP / L3 on demand',
+    d: 'Escalado especializado para equipos AMS, partners y clientes que ya operan ECP: troubleshooting complejo, integración EC–ECP, replicación, Payroll Control Center y escalaciones productivas.',
+  },
+  {
     t: 'Auditoría de nómina',
     d: 'Revisión independiente de esquemas, reglas, conceptos y acumuladores. Detección de desviaciones antes de que lleguen al recibo, con plan de corrección priorizado por impacto.',
   },
@@ -30,27 +34,55 @@ const cifras = [
   { n: '3', l: 'certificaciones SAP vigentes' },
 ];
 
+const porQue = [
+  {
+    t: 'Payroll-first',
+    d: 'Conozco el proceso de nómina, no solo su configuración en SAP. Sé qué tiene que salir en el recibo y por qué, y eso cambia cómo se diseña y cómo se depura.',
+  },
+  {
+    t: 'ECP end-to-end',
+    d: 'Integración EC–ECP, PTP, Payroll Control Center, replicación, cálculo y estabilización. El circuito completo, no un tramo suelto.',
+  },
+  {
+    t: 'Profundidad funcional y técnica',
+    d: 'Configuro, depuro y especifico desarrollos. Puedo sentarme con el equipo técnico sin intermediarios y cerrar el análisis de un problema hasta su origen.',
+  },
+  {
+    t: 'Ownership senior',
+    d: 'Capacidad de llevar un workstream entero y mirar el conjunto: alcance, riesgos y entrega, no una cola de tickets.',
+  },
+];
+
 const clientes = ['AENA', 'Telefónica', 'Serveo', 'Unilever', "L'Oréal", 'Stellantis', 'Obramat', 'Scania', 'Tenaris', 'MÁSMÓVIL'];
 
 const casos = [
   {
     t: 'Serveo · España',
-    d: 'Implantación de nómina España entregada en 6 meses, con 22.000 empleados, 9 sociedades y más de 150 convenios. Uno de los despliegues más complejos de la compañía en el país.',
+    problema: 'Implantar la nómina de España para una compañía con 9 sociedades y más de 150 convenios colectivos, con fecha de arranque cerrada a 6 meses.',
+    intervencion: 'Configuración PA y PY, esquemas y reglas, y coordinación con el equipo técnico hasta el arranque en productivo.',
+    resultado: 'Entrega dentro del plazo, en uno de los despliegues más complejos de la compañía en el país.',
+    stack: 'SAP HCM Payroll · PY-ES',
   },
   {
-    t: 'AENA · Migración ECC a ECP',
-    d: 'Sector público, 9.000 empleados y 4 sociedades. Alcance funcional, análisis de gaps, integración PTP y Payroll Control Center.',
+    t: 'AENA · Migración de ECC a ECP',
+    problema: 'Llevar a Employee Central Payroll la nómina de un organismo del sector público con 4 sociedades y normativa propia.',
+    intervencion: 'Alcance funcional, análisis de gaps frente al estándar, arquitectura de integración PTP y puesta en marcha de Payroll Control Center.',
+    resultado: 'Modelo de datos y de replicación definido y validado antes del arranque.',
+    stack: 'SAP HCM · ECP · PTP · PCC',
   },
   {
     t: 'Tenaris · Operación global',
-    d: 'Mantenimiento SAP HCM in-house para 8 países. Estabilicé la nómina jornalizada de Argentina en 2 meses tras el go-live, con una caída de incidencias del 70%.',
+    problema: 'Nómina jornalizada de Argentina inestable tras el go-live, con incidencias recurrentes en cada cierre y un equipo en modo reactivo.',
+    intervencion: 'Agrupación de las incidencias por causa raíz, priorización por impacto en el recibo y corrección ordenada a lo largo de dos ciclos.',
+    resultado: 'Caída sostenida del volumen de incidencias mensuales y cierre de la fase de estabilización en 2 meses.',
+    stack: 'SAP HCM Payroll · operación in-house para 8 países',
   },
 ];
 ---
 
 <Base
-  title="Facundo Corbalan · Consultor SAP HCM y Employee Central Payroll"
-  description="Consultor freelance especializado en SAP HCM, Payroll y Employee Central Payroll. Implantaciones, migraciones a ECP y auditorías de nómina."
+  title="Consultor SAP HCM Payroll y Employee Central Payroll · Facundo Corbalan"
+  description="Consultor freelance senior de SAP HCM Payroll y SuccessFactors Employee Central Payroll en Madrid. Implantación y migración a ECP, auditoría de nómina y soporte experto L3."
   lang="es"
   active="home"
   esPath="/"
@@ -59,7 +91,7 @@ const casos = [
   <section class="hero">
     <div class="wrap hero-grid">
       <div>
-        <p class="eyebrow">Consultoría SAP HCM y SuccessFactors Employee Central Payroll</p>
+        <p class="eyebrow">Consultoría SAP HCM Payroll y SuccessFactors Employee Central Payroll</p>
         <h1>La nómina es el proceso que menos perdona un error.</h1>
         <p class="lead">
           Soy Facundo Corbalan, consultor senior freelance de SAP HCM Payroll y ECP. Diseño, implanto y estabilizo
@@ -76,7 +108,7 @@ const casos = [
         <img class="portrait" src="/facundo-corbalan.jpg" width="560" height="560" alt="Retrato de Facundo Corbalan" />
         <ul class="certs">
           <li>SuccessFactors ECP</li>
-          <li>Payroll S/4HANA</li>
+          <li>SAP Payroll</li>
           <li>SAP Activate PM</li>
         </ul>
       </div>
@@ -84,20 +116,26 @@ const casos = [
   </section>
 
   <section class="section-soft tight">
-    <div class="wrap stats">
-      {cifras.map((c) => (
-        <div class="stat">
-          <div class="n">{c.n}</div>
-          <div class="l">{c.l}</div>
-        </div>
-      ))}
+    <div class="wrap">
+      <div class="stats">
+        {cifras.map((c) => (
+          <div class="stat">
+            <div class="n">{c.n}</div>
+            <div class="l">{c.l}</div>
+          </div>
+        ))}
+      </div>
+      <p class="small muted trust-line">
+        SAP Certified ×3 · <a href="https://www.malt.es/profile/facundocorbalan" target="_blank" rel="noopener">Malt Supermalter</a>
+        · <a href="https://www.linkedin.com/in/facundocorbalan/" target="_blank" rel="noopener">LinkedIn</a>
+      </p>
     </div>
   </section>
 
   <section>
     <div class="wrap">
       <p class="eyebrow">En qué puedo ayudar</p>
-      <h2 style="margin-top:0">Cuatro formas de trabajar juntos</h2>
+      <h2 style="margin-top:0">Cinco formas de trabajar juntos</h2>
       <div class="grid grid-2" style="margin-top:32px">
         {servicios.map((s) => (
           <div class="card">
@@ -112,24 +150,77 @@ const casos = [
 
   <section class="section-soft">
     <div class="wrap">
+      <p class="eyebrow">Por qué trabajar conmigo</p>
+      <h2 style="margin-top:0">Qué me diferencia de un perfil SAP generalista</h2>
+      <div class="grid grid-2" style="margin-top:32px">
+        {porQue.map((p) => (
+          <div class="card">
+            <h3>{p.t}</h3>
+            <p class="muted">{p.d}</p>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <div class="wrap">
       <p class="eyebrow">Experiencia</p>
       <h2 style="margin-top:0">Volumen y complejidad reales</h2>
       <p class="lead narrow">
-        Nóminas de hasta 60.000 empleados, implantaciones con más de 150 convenios colectivos, migraciones de SAP ECC a
-        Employee Central Payroll y despliegues en España, Portugal, Argentina, México, Colombia y Ecuador.
+        Nóminas de gran volumen, implantaciones con más de 150 convenios colectivos, migraciones de SAP ECC a Employee
+        Central Payroll y despliegues en España, Portugal, Argentina, México, Colombia y Ecuador.
       </p>
-      <ul class="tags" style="margin-top:24px">
+      <p class="small muted" style="margin-top:28px;margin-bottom:10px">
+        Organizaciones en las que he participado en proyectos SAP / Payroll
+      </p>
+      <ul class="tags">
         {clientes.map((c) => <li>{c}</li>)}
       </ul>
       <div class="grid grid-3" style="margin-top:40px">
         {casos.map((c) => (
           <div class="card">
             <h3>{c.t}</h3>
-            <p class="small muted">{c.d}</p>
+            <p class="small muted case-line"><strong>Problema.</strong> {c.problema}</p>
+            <p class="small muted case-line"><strong>Intervención.</strong> {c.intervencion}</p>
+            <p class="small muted case-line"><strong>Resultado.</strong> {c.resultado}</p>
+            <p class="small muted case-stack">{c.stack}</p>
           </div>
         ))}
       </div>
       <p style="margin-top:28px"><a href="/sobre-mi/">Trayectoria completa →</a></p>
+    </div>
+  </section>
+
+  <section class="section-soft">
+    <div class="wrap">
+      <p class="eyebrow">Credenciales</p>
+      <h2 style="margin-top:0">Verificable fuera de esta web</h2>
+      <div class="grid grid-3" style="margin-top:28px">
+        <div class="card">
+          <h3>Certificaciones SAP</h3>
+          <p class="small muted">
+            SuccessFactors Employee Central Payroll, SAP HCM Payroll for SAP S/4HANA y SAP Activate Project Manager,
+            las tres vigentes hasta mayo de 2027.
+          </p>
+        </div>
+        <div class="card">
+          <h3>Malt · Supermalter</h3>
+          <p class="small muted">
+            Reconocimiento Supermalter en la plataforma, con perfil público y posibilidad de contratación gestionada.
+          </p>
+          <p style="margin-bottom:0">
+            <a href="https://www.malt.es/profile/facundocorbalan" target="_blank" rel="noopener">Ver perfil en Malt →</a>
+          </p>
+        </div>
+        <div class="card">
+          <h3>LinkedIn</h3>
+          <p class="small muted">Trayectoria, proyectos y actividad profesional al día.</p>
+          <p style="margin-bottom:0">
+            <a href="https://www.linkedin.com/in/facundocorbalan/" target="_blank" rel="noopener">/in/facundocorbalan →</a>
+          </p>
+        </div>
+      </div>
     </div>
   </section>
 
@@ -160,7 +251,7 @@ const casos = [
           Cuéntame el contexto y te digo con franqueza si puedo aportar, cuánto tiempo llevaría y qué haría primero. Sin
           compromiso.
         </p>
-        <a class="btn btn-primary" href="/contacto/">Escribirme</a>
+        <a class="btn btn-primary" href="/contacto/">Hablemos del proyecto</a>
       </div>
     </div>
   </section>

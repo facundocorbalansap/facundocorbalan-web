@@ -1,0 +1,45 @@
+---
+import Base from '../../layouts/Base.astro';
+import { posts, dateEn } from '../../lib/posts.js';
+---
+
+<Base
+  title="Blog · SAP HCM and Employee Central Payroll"
+  description="Articles on SAP payroll: schemas and rules, Employee Central Payroll migration, PTP integration, legal changes and go-live stabilisation."
+  lang="en"
+  active="blog"
+  esPath="/blog/"
+  enPath="/en/blog/"
+>
+  <section class="hero" style="padding-bottom:32px">
+    <div class="wrap">
+      <p class="eyebrow">Blog</p>
+      <h1>SAP payroll notes</h1>
+      <p class="lead narrow">
+        What I pick up on real projects: schemas and rules, ECP migrations, Employee Central integration, legal changes,
+        and everything that tends to break right before a close.
+      </p>
+      <p class="small muted" style="margin-top:20px">
+        Articles are currently published in Spanish. Titles and summaries are listed below; if you would like one of
+        them in English, just ask.
+      </p>
+    </div>
+  </section>
+
+  <section class="tight">
+    <div class="wrap">
+      <ul class="posts">
+        {posts.map((p) => (
+          <li>
+            <a class="post" href={p.url + '/'}>
+              <span class="small muted">{dateEn(p.frontmatter.date)} · in Spanish</span>
+              <h3>{p.frontmatter.title}</h3>
+              <p>{p.frontmatter.description}</p>
+            </a>
+          </li>
+        ))}
+      </ul>
+      <p class="small muted" style="margin-top:32px">You can also follow it via <a href="/rss.xml">RSS</a>.</p>
+    </div>
+  </section>
+</Base>

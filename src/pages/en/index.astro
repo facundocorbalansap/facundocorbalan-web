@@ -1,0 +1,146 @@
+---
+import Base from '../../layouts/Base.astro';
+
+const services = [
+  {
+    t: 'ECP implementation and migration',
+    d: 'From scope definition to go-live: PA and PY configuration, schemas and rules, PTP integration between Employee Central and ECP, Payroll Control Center and parallel runs.',
+  },
+  {
+    t: 'Payroll audit',
+    d: 'Independent review of schemas, rules, wage types and cumulations. Catching deviations before they reach the payslip, with a fix plan prioritised by impact.',
+  },
+  {
+    t: 'Functional lead as a service',
+    d: 'Functional ownership of the payroll workstream without adding the role to your headcount: scope, timeline, coordination of the functional and technical team, and business stakeholder management.',
+  },
+  {
+    t: 'Support and enhancements (AMS)',
+    d: 'Post go-live continuity: monthly closes, legal and collective agreement changes, SAP notes, replication incidents and operational stabilisation.',
+  },
+];
+
+const stats = [
+  { n: '8+', l: 'years in SAP HCM and Payroll' },
+  { n: '20+', l: 'payroll projects delivered' },
+  { n: '6', l: 'countries across Europe and LATAM' },
+  { n: '3', l: 'active SAP certifications' },
+];
+
+const clients = ['AENA', 'Telefónica', 'Serveo', 'Unilever', "L'Oréal", 'Stellantis', 'Obramat', 'Scania', 'Tenaris', 'MÁSMÓVIL'];
+
+const cases = [
+  {
+    t: 'Serveo · Spain',
+    d: "Spanish payroll implementation delivered in 6 months, covering 22,000 employees, 9 legal entities and more than 150 collective agreements. One of the company's most complex rollouts in the country.",
+  },
+  {
+    t: 'AENA · ECC to ECP migration',
+    d: 'Public sector, 9,000 employees and 4 legal entities. Functional scope, gap analysis, PTP integration and Payroll Control Center.',
+  },
+  {
+    t: 'Tenaris · Global operation',
+    d: 'In-house SAP HCM maintenance across 8 countries. I stabilised the Argentine hourly payroll within 2 months of go-live, cutting reported incidents by 70%.',
+  },
+];
+---
+
+<Base
+  title="Facundo Corbalan · SAP HCM and Employee Central Payroll consultant"
+  description="Freelance senior consultant specialised in SAP HCM Payroll and SuccessFactors Employee Central Payroll. Implementations, ECP migrations and payroll audits."
+  lang="en"
+  active="home"
+  esPath="/"
+  enPath="/en/"
+>
+  <section class="hero">
+    <div class="wrap hero-grid">
+      <div>
+        <p class="eyebrow">SAP HCM and SuccessFactors Employee Central Payroll consulting</p>
+        <h1>Payroll is the process that forgives an error least.</h1>
+        <p class="lead">
+          I am Facundo Corbalan, a freelance senior SAP HCM Payroll and ECP consultant. I design, implement and
+          stabilise payrolls that have to add up every single month, for tens of thousands of people, across multiple
+          legal entities and collective agreements that look nothing like each other.
+        </p>
+        <div class="hero-actions">
+          <a class="btn btn-primary" href="/en/contact/">Tell me about your project</a>
+          <a class="btn btn-ghost" href="/en/services/">See services</a>
+        </div>
+        <p class="small muted" style="margin-top:28px">Design · Lead · Stabilise · Deliver</p>
+      </div>
+      <div class="portrait-wrap">
+        <img class="portrait" src="/facundo-corbalan.jpg" width="560" height="560" alt="Portrait of Facundo Corbalan" />
+        <ul class="certs">
+          <li>SuccessFactors ECP</li>
+          <li>Payroll S/4HANA</li>
+          <li>SAP Activate PM</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <section class="section-soft tight">
+    <div class="wrap stats">
+      {stats.map((s) => (
+        <div class="stat">
+          <div class="n">{s.n}</div>
+          <div class="l">{s.l}</div>
+        </div>
+      ))}
+    </div>
+  </section>
+
+  <section>
+    <div class="wrap">
+      <p class="eyebrow">How I can help</p>
+      <h2 style="margin-top:0">Four ways to work together</h2>
+      <div class="grid grid-2" style="margin-top:32px">
+        {services.map((s) => (
+          <div class="card">
+            <h3>{s.t}</h3>
+            <p class="muted">{s.d}</p>
+          </div>
+        ))}
+      </div>
+      <p style="margin-top:28px"><a href="/en/services/">How I work on each one →</a></p>
+    </div>
+  </section>
+
+  <section class="section-soft">
+    <div class="wrap">
+      <p class="eyebrow">Experience</p>
+      <h2 style="margin-top:0">Real scale, real complexity</h2>
+      <p class="lead narrow">
+        Payrolls of up to 60,000 employees, implementations with more than 150 collective agreements, SAP ECC to
+        Employee Central Payroll migrations, and rollouts across Spain, Portugal, Argentina, Mexico, Colombia and
+        Ecuador.
+      </p>
+      <ul class="tags" style="margin-top:24px">
+        {clients.map((c) => <li>{c}</li>)}
+      </ul>
+      <div class="grid grid-3" style="margin-top:40px">
+        {cases.map((c) => (
+          <div class="card">
+            <h3>{c.t}</h3>
+            <p class="small muted">{c.d}</p>
+          </div>
+        ))}
+      </div>
+      <p style="margin-top:28px"><a href="/en/about/">Full background →</a></p>
+    </div>
+  </section>
+
+  <section class="tight">
+    <div class="wrap">
+      <div class="cta">
+        <h2>Got a SAP payroll project on your hands?</h2>
+        <p class="muted narrow" style="margin:0 auto 24px">
+          Tell me the context and I will tell you frankly whether I can add value, how long it would take and what I
+          would tackle first. No strings attached.
+        </p>
+        <a class="btn btn-primary" href="/en/contact/">Get in touch</a>
+      </div>
+    </div>
+  </section>
+</Base>

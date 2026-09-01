@@ -5,9 +5,7 @@
 [build.environment]
   NODE_VERSION = "22"
 
-[[headers]]
-  for = "/*"
-  [headers.values]
-    X-Frame-Options = "SAMEORIGIN"
-    X-Content-Type-Options = "nosniff"
-    Referrer-Policy = "strict-origin-when-cross-origin"
+# Las redirecciones y las cabeceras viven en public/_redirects y public/_headers.
+# Se dejan ahí a propósito: este netlify.toml solo se aplica cuando el sitio se
+# construye desde el repositorio, mientras que los ficheros de public/ acaban
+# dentro de dist/ y funcionan también al publicar arrastrando la carpeta.

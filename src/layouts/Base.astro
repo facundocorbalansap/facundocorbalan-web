@@ -1,0 +1,67 @@
+---
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+import '../styles/global.css';
+
+const {
+  title,
+  description,
+  lang = 'es',
+  active = '',
+  // Rutas equivalentes en cada idioma. Si se pasan, se emiten los hreflang
+  // y el conmutador de idioma apunta a la que toca.
+  esPath,
+  enPath,
+  // Para páginas sin equivalente traducido (los artículos del blog),
+  // el conmutador necesita un destino explícito.
+  alt,
+} = Astro.props;
+
+const site = Astro.site ?? new URL('https://facundocorbalan.com');
+const canonical = new URL(Astro.url.pathname, site).href;
+
+const hasAlternates = Boolean(esPath && enPath);
+const switchHref = alt ?? (lang === 'es' ? enPath : esPath) ?? '/';
+---
+
+<!doctype html>
+<html lang={lang}>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>{title}</title>
+    <meta name="description" content={description} />
+    <link rel="canonical" href={canonical} />
+    {hasAlternates && (
+      <>
+        <link rel="alternate" hreflang="es" href={new URL(esPath, site).href} />
+        <link rel="alternate" hreflang="en" href={new URL(enPath, site).href} />
+        <link rel="alternate" hreflang="x-default" href={new URL(esPath, site).href} />
+      </>
+    )}
+    <link rel="sitemap" href="/sitemap-index.xml" />
+    <link rel="alternate" type="application/rss+xml" title="Blog de Facundo Corbalan" href="/rss.xml" />
+
+    <meta property="og:type" content="website" />
+    <meta property="og:locale" content={lang === 'es' ? 'es_ES' : 'en_GB'} />
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
+    <meta property="og:url" content={canonical} />
+    <meta property="og:image" content={new URL('/og.png', site).href} />
+    <meta name="twitter:card" content="summary_large_image" />
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,600&family=Inter:wght@400;500;600&display=swap"
+    />
+  </head>
+  <body>
+    <Header lang={lang} active={active} alt={switchHref} />
+    <main>
+      <slot />
+    </main>
+    <Footer lang={lang} />
+  </body>
+</html>

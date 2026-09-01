@@ -1,0 +1,115 @@
+---
+import Base from '../layouts/Base.astro';
+---
+
+<Base
+  title="Contacto · Facundo Corbalan, consultor SAP HCM y ECP"
+  description="Cuéntame tu proyecto de nómina SAP. Respondo en 24 a 48 horas laborables."
+  lang="es"
+  active=""
+  esPath="/contacto/"
+  enPath="/en/contact/"
+>
+  <section class="hero" style="padding-bottom:32px">
+    <div class="wrap">
+      <p class="eyebrow">Contacto</p>
+      <h1>Cuéntame tu caso</h1>
+      <p class="lead narrow">
+        Cuanto más contexto me des (país de la nómina, volumen, sistema actual y en qué punto está el proyecto), más
+        útil será mi respuesta. Contesto en 24 a 48 horas laborables.
+      </p>
+    </div>
+  </section>
+
+  <section class="tight">
+    <div class="wrap">
+      <div class="grid grid-2" style="gap:48px">
+        <div>
+          <form
+            class="contact"
+            name="contacto"
+            method="POST"
+            data-netlify="true"
+            netlify-honeypot="empresa-web"
+            action="/gracias/"
+          >
+            <input type="hidden" name="form-name" value="contacto" />
+            <p style="display:none"><label>No rellenar: <input name="empresa-web" /></label></p>
+
+            <label>Nombre<input type="text" name="nombre" required autocomplete="name" /></label>
+            <label>Email<input type="email" name="email" required autocomplete="email" /></label>
+            <label>Empresa<input type="text" name="empresa" autocomplete="organization" /></label>
+
+            <label>
+              ¿Qué necesitas?
+              <select name="tipo">
+                <option>Implantación o migración a ECP</option>
+                <option>Auditoría de nómina</option>
+                <option>Lead funcional para un proyecto</option>
+                <option>Soporte y evolutivos (AMS)</option>
+                <option>Otra cosa</option>
+              </select>
+            </label>
+
+            <label>
+              Contexto
+              <textarea
+                name="mensaje"
+                required
+                placeholder="País de la nómina, número de empleados, sistema actual y en qué punto está el proyecto."
+              ></textarea>
+            </label>
+
+            <label class="small" style="flex-direction:row;display:flex;gap:10px;align-items:flex-start;font-weight:400">
+              <input type="checkbox" name="privacidad" required style="width:auto;margin-top:3px" />
+              <span>He leído y acepto la <a href="/privacidad/">política de privacidad</a>.</span>
+            </label>
+
+            <div><button class="btn btn-primary" type="submit">Enviar</button></div>
+          </form>
+        </div>
+
+        <div>
+          <div class="card">
+            <h3>Directo</h3>
+            <p class="small muted" style="margin-bottom:6px">Email</p>
+            <p><a href="mailto:facundo@facundocorbalan.com">facundo@facundocorbalan.com</a></p>
+            <p class="small muted" style="margin-bottom:6px">Teléfono</p>
+            <p><a href="tel:+34614268385">+34 614 268 385</a></p>
+            <p class="small muted" style="margin-bottom:6px">WhatsApp</p>
+            <p>
+              <a
+                class="btn btn-wa"
+                href="https://wa.me/34614268385?text=Hola%20Facundo%2C%20te%20escribo%20desde%20tu%20web%20por%20un%20proyecto%20de%20n%C3%B3mina%20SAP."
+                target="_blank"
+                rel="noopener">Escribir por WhatsApp</a
+              >
+            </p>
+            <p class="small muted" style="margin-bottom:6px">LinkedIn</p>
+            <p><a href="https://www.linkedin.com/in/facundocorbalan/" target="_blank" rel="noopener">/in/facundocorbalan</a></p>
+          </div>
+
+          <div class="card" style="margin-top:20px">
+            <h3>¿Prefieres hablarlo?</h3>
+            <p class="small muted">
+              Agenda directamente una llamada de 30 minutos en mi calendario, sin pasar por el formulario.
+            </p>
+            <p style="margin-bottom:0">
+              <a class="btn btn-ghost" href="https://calendly.com/facundocorbalan">Reservar una llamada</a>
+            </p>
+          </div>
+
+          <div class="card" style="margin-top:20px">
+            <h3>Cómo trabajo</h3>
+            <ul>
+              <li>Autónomo con alta ROI, facturación en la UE y en LATAM</li>
+              <li>Seguro de responsabilidad civil profesional de 1 M€</li>
+              <li>100% remoto, con reuniones puntuales en Madrid</li>
+              <li>Disponibilidad negociable o inmediata según el alcance</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+</Base>

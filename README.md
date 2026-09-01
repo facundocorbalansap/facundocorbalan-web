@@ -19,9 +19,10 @@ npm run preview  # sirve dist/ para revisarlo antes de publicar
 
 ```
 src/
-  layouts/Base.astro     Plantilla general (head, SEO, cabecera y pie)
+  layouts/Base.astro     Plantilla general (head, SEO, hreflang, cabecera y pie)
   layouts/Post.astro     Plantilla de artículo del blog
-  components/            Cabecera y pie
+  components/            Cabecera y pie, bilingües desde una sola plantilla
+  lib/posts.js           Carga y ordena los artículos; lo usan portada, blog y RSS
   styles/global.css      Todo el diseño: colores, tipografía y componentes
   pages/
     index.astro          Inicio
@@ -33,7 +34,8 @@ src/
     rss.xml.js           Feed RSS
     blog/index.astro     Listado del blog
     blog/*.md            Un archivo por artículo
-public/                  Imágenes y robots.txt
+    en/                  Las mismas páginas en inglés, salvo los artículos
+public/                  Imágenes, robots.txt, _redirects y _headers
 ```
 
 ## Publicar un artículo
@@ -65,6 +67,11 @@ El sitio es estático, así que sirve cualquier hosting gratuito. La configuraci
    - Registro `A` de `@` a la IP que indique Netlify.
    - Registro `CNAME` de `www` al subdominio `*.netlify.app` del sitio.
 5. El certificado HTTPS se emite solo en unos minutos.
+6. Para `facundocorbalan.es`: añádelo en Netlify como *domain alias* (hacen falta las dos entradas, con y sin `www`) y apunta su DNS en DonDominio al subdominio `*.netlify.app` del sitio. `public/_redirects` lo redirige con un 301 al `.com` conservando la ruta.
+
+### Redirecciones y cabeceras
+
+Viven en `public/_redirects` y `public/_headers`, no en `netlify.toml`. Es a propósito: `netlify.toml` solo se aplica cuando Netlify construye el sitio desde el repositorio, mientras que lo que está en `public/` acaba dentro de `dist/` y se aplica también si el sitio se publica arrastrando la carpeta a Netlify Drop.
 
 ## Formulario de contacto
 
@@ -74,6 +81,6 @@ Si el hosting acaba siendo otro, hay que sustituir el `action` del formulario po
 
 ## Pendiente antes de publicar
 
-- Revisar la política de privacidad con los datos fiscales reales.
-- Crear la imagen `public/og.png` (1200x630) para las previsualizaciones en redes.
-- Confirmar el enlace de Calendly de la página de contacto.
+- Revisar la política de privacidad con los datos fiscales reales. Hasta que se haga, `/privacidad/` y `/en/privacy/` muestran un aviso visible de "pendiente de revisión".
+
+Ya resuelto: la imagen `public/og.png` (1200x630) está creada y el enlace de Calendly de la página de contacto está confirmado.

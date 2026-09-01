@@ -1,0 +1,199 @@
+---
+import Base from '../layouts/Base.astro';
+
+const certificaciones = [
+  { t: 'SuccessFactors Employee Central Payroll', d: 'Implementation Consultant · vigente hasta mayo de 2027' },
+  { t: 'SAP HCM Payroll for SAP S/4HANA', d: 'Vigente hasta mayo de 2027' },
+  { t: 'SAP Activate Project Manager', d: 'Vigente hasta mayo de 2027' },
+];
+
+const competencias = [
+  'Esquemas y reglas (PCR)',
+  'SAP HCM PY / PA',
+  'SuccessFactors ECP',
+  'SuccessFactors EC',
+  'Integración EC-ECP (PTP)',
+  'Payroll Control Center',
+  'Nómina España',
+  'Nómina Argentina',
+  'Nómina Portugal',
+  'Nómina México',
+  'ABAP (funciones, BADIs, Z-reports)',
+];
+
+const trayectoria = [
+  {
+    when: 'Jun 2026 · Actualidad',
+    rol: 'SAP Payroll Engineer',
+    donde: 'Rimini Street · Nómina España · Freelance',
+    d: 'Diseño e implementación de cambios legales de nómina España (PY-ES) para clientes finales de gran escala en entornos SAP ECC bajo soporte independiente.',
+  },
+  {
+    when: 'Jun 2026 · Actualidad',
+    rol: 'Consultor SAP ECP & Payroll',
+    donde: 'Indra | Telefónica · España · Freelance',
+    d: 'Soporte y mantenimiento de nómina España sobre ECP para las sociedades de fija y móviles, con unos 60.000 empleados entre activos y pasivos. Referente de ECP dentro del equipo y formación a consultores procedentes de Meta4.',
+  },
+  {
+    when: 'Feb 2026 · Actualidad',
+    rol: 'Lead SAP ECP & Payroll',
+    donde: 'Clever for Tech | Cale Group · Argentina · Freelance',
+    d: 'Liderazgo end-to-end del workstream funcional en la implantación de ECP para un holding diversificado: 350 empleados, 9 sociedades y 3 convenios colectivos.',
+  },
+  {
+    when: 'Sep 2025 · May 2026',
+    rol: 'Consultor SAP ECP & Payroll',
+    donde: 'T-Systems Iberia · Madrid',
+    d: 'Migración de ECC a ECP e implantación para AENA: sector público, unos 9.000 empleados, 4 sociedades, PA y PY, integración PTP y Payroll Control Center.',
+  },
+  {
+    when: 'Mar 2025 · Ago 2025',
+    rol: 'Lead SAP ECP & Payroll',
+    donde: 'Strada · Barcelona',
+    d: 'Mantenimiento y evolutivos de nómina para Serveo.',
+  },
+  {
+    when: 'Ago 2024 · Feb 2025',
+    rol: 'Consultor SAP ECP & Payroll',
+    donde: 'HR Path · Barcelona',
+    d: 'Implantaciones de nómina España y Portugal para Scania y Obramat.',
+  },
+  {
+    when: 'Dic 2022 · Jul 2025',
+    rol: 'SAP HCM Sr. Functional Consultant',
+    donde: 'Softtek · Argentina · Freelance',
+    d: 'Mantenimiento y evolutivos de nómina Argentina para Ecogas, Acindar, SACDE, Blue Star Group y La Nación, entre otros.',
+  },
+  {
+    when: 'Feb 2022 · Dic 2022',
+    rol: 'Especialista IT HR Business Solutions',
+    donde: 'Tenaris · Buenos Aires',
+    d: 'Mantenimiento global SAP HCM in-house para 8 países. Estabilización de la nómina jornalizada de Argentina en 2 meses tras el go-live, con una reducción del 70% de incidencias mensuales.',
+  },
+  {
+    when: 'Dic 2019 · Feb 2022',
+    rol: 'Consultor Senior Funcional SAP HCM',
+    donde: 'Alight Solutions · Buenos Aires',
+    d: 'Nómina LATAM: implantaciones para Unilever, L’Oréal y Stellantis en Argentina, más mantenimiento multicliente en México, Colombia y Ecuador.',
+  },
+  {
+    when: 'Sep 2017 · Dic 2019',
+    rol: 'Líder de Implementación de Payroll',
+    donde: 'Adecco · Buenos Aires',
+    d: '11 proyectos cliente entregados en la división de outsourcing de payroll, con una configuración modelo reutilizable.',
+  },
+];
+
+const formacion = [
+  {
+    t: 'Nómina y Seguridad Social España',
+    d: 'Niveles 1 y 2 más especialización · Foment Formació, Barcelona · 2023 a 2024',
+  },
+  { t: 'SAP HR Academy (THR10 a THR12) y programación ABAP', d: 'Axigma Technologies · UTN · 2022' },
+];
+---
+
+<Base
+  title="Sobre mí · Facundo Corbalan, consultor SAP HCM y ECP"
+  description="Trayectoria, certificaciones y competencias de Facundo Corbalan, consultor senior de SAP HCM Payroll y SuccessFactors Employee Central Payroll en Madrid."
+  lang="es"
+  active="about"
+  esPath="/sobre-mi/"
+  enPath="/en/about/"
+>
+  <section class="hero" style="padding-bottom:32px">
+    <div class="wrap">
+      <p class="eyebrow">Sobre mí</p>
+      <h1>Ocho años mirando nóminas por dentro</h1>
+      <p class="lead narrow">
+        Empecé liquidando nóminas a mano en Buenos Aires y acabé diseñando las que calculan para decenas de miles de
+        personas. Esa trayectoria, de la operación al diseño, es lo que me permite encontrar rápido el origen de un
+        problema.
+      </p>
+    </div>
+  </section>
+
+  <section class="tight">
+    <div class="wrap narrow">
+      <p>
+        Soy consultor senior especializado en SAP HCM Payroll y SAP SuccessFactors Employee Central Payroll, con más de
+        ocho años en proyectos de implantación, evolución y soporte de nómina para organizaciones grandes y
+        operativamente complejas en España, Portugal, Argentina y Latinoamérica.
+      </p>
+      <p>
+        Mi especialización principal es Payroll, complementada con el diseño de integraciones entre Employee Central y
+        ECP, la configuración de EC, la definición de procesos end-to-end y el análisis funcional de desarrollos ABAP
+        relacionados con nómina: funciones de cálculo, BADIs, interfaces y reportes Z. Me interesa que la solución sea
+        robusta y mantenible, y que los riesgos se detecten pronto, cuando todavía son baratos de corregir.
+      </p>
+      <p>
+        He recorrido el ciclo de nómina desde varios sitios: técnico operativo, usuario clave en una migración de Nexus
+        HR a PeopleSoft, consultor funcional SAP y responsable in-house de una operación global de nómina para ocho
+        países en Tenaris. Vivo en Madrid desde 2023 y trabajo en remoto, con reuniones puntuales presenciales.
+      </p>
+    </div>
+  </section>
+
+  <section class="section-soft">
+    <div class="wrap">
+      <h2 style="margin-top:0">Certificaciones vigentes</h2>
+      <div class="grid grid-3" style="margin-top:24px">
+        {certificaciones.map((c) => (
+          <div class="card">
+            <h3>{c.t}</h3>
+            <p class="small muted">{c.d}</p>
+          </div>
+        ))}
+      </div>
+
+      <h2>Competencias</h2>
+      <ul class="tags" style="margin-top:20px">
+        {competencias.map((c) => <li>{c}</li>)}
+      </ul>
+    </div>
+  </section>
+
+  <section>
+    <div class="wrap">
+      <h2 style="margin-top:0">Trayectoria</h2>
+      <div class="timeline" style="margin-top:32px">
+        {trayectoria.map((t) => (
+          <div class="item">
+            <div class="when">{t.when}</div>
+            <h3>{t.rol}</h3>
+            <div class="small muted" style="margin-bottom:8px">{t.donde}</div>
+            <p class="muted" style="margin:0">{t.d}</p>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <section class="section-soft tight">
+    <div class="wrap">
+      <h2 style="margin-top:0">Formación</h2>
+      <div class="grid grid-2" style="margin-top:24px">
+        {formacion.map((f) => (
+          <div class="card">
+            <h3>{f.t}</h3>
+            <p class="small muted">{f.d}</p>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <section class="tight">
+    <div class="wrap">
+      <div class="cta">
+        <h2>¿Trabajamos juntos?</h2>
+        <p class="muted narrow" style="margin:0 auto 24px">
+          Estoy disponible para proyectos de implantación, auditorías y soporte, con cliente final o a través de
+          partners. También puedes seguir mi actividad en
+          <a href="https://www.linkedin.com/in/facundocorbalan/" target="_blank" rel="noopener">LinkedIn</a>.
+        </p>
+        <a class="btn btn-primary" href="/contacto/">Contactar</a>
+      </div>
+    </div>
+  </section>
+</Base>

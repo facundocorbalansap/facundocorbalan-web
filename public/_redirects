@@ -1,0 +1,7 @@
+# facundocorbalan.es -> facundocorbalan.com (301, conservando la ruta).
+# Vive en public/ para que acabe dentro de dist/ y funcione tanto si el sitio
+# se publica arrastrando la carpeta como si se construye desde el repositorio.
+https://facundocorbalan.es/*      https://facundocorbalan.com/:splat  301!
+https://www.facundocorbalan.es/*  https://facundocorbalan.com/:splat  301!
+http://facundocorbalan.es/*       https://facundocorbalan.com/:splat  301!
+http://www.facundocorbalan.es/*   https://facundocorbalan.com/:splat  301!

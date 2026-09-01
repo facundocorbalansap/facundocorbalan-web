@@ -1,0 +1,41 @@
+---
+import Base from '../../layouts/Base.astro';
+import { posts, fechaEs } from '../../lib/posts.js';
+---
+
+<Base
+  title="Blog · Nómina SAP HCM y Employee Central Payroll"
+  description="Artículos sobre nómina SAP: esquemas y reglas, migración a Employee Central Payroll, integración PTP, cambios legales y estabilización de go-lives."
+  lang="es"
+  active="blog"
+  esPath="/blog/"
+  enPath="/en/blog/"
+>
+  <section class="hero" style="padding-bottom:32px">
+    <div class="wrap">
+      <p class="eyebrow">Blog</p>
+      <h1>Notas de nómina SAP</h1>
+      <p class="lead narrow">
+        Lo que voy aprendiendo en proyectos reales: esquemas y reglas, migraciones a ECP, integración con Employee
+        Central, cambios legales y todo lo que suele romperse justo antes de un cierre.
+      </p>
+    </div>
+  </section>
+
+  <section class="tight">
+    <div class="wrap">
+      <ul class="posts">
+        {posts.map((p) => (
+          <li>
+            <a class="post" href={p.url + '/'}>
+              <span class="small muted">{[fechaEs(p.frontmatter.date), ...(p.frontmatter.tags ?? [])].join(' · ')}</span>
+              <h3>{p.frontmatter.title}</h3>
+              <p>{p.frontmatter.description}</p>
+            </a>
+          </li>
+        ))}
+      </ul>
+      <p class="small muted" style="margin-top:32px">También puedes seguirlo por <a href="/rss.xml">RSS</a>.</p>
+    </div>
+  </section>
+</Base>

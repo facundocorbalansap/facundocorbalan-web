@@ -1,0 +1,146 @@
+---
+import Base from '../layouts/Base.astro';
+
+const bloques = [
+  {
+    id: 'implantacion',
+    soft: false,
+    titulo: 'Implantación y migración a Employee Central Payroll',
+    para: 'Para organizaciones que arrancan un proyecto de nómina SAP desde cero o que migran su SAP HCM on-premise a ECP.',
+    resultado:
+      'Un sistema que calcula bien desde el primer mes y que tu equipo puede mantener sin depender de quien lo construyó.',
+    incluye: [
+      'Definición del alcance funcional y análisis de gaps frente al estándar ECP',
+      'Configuración PA: estructura de empresa, infotipos, features, constantes y contabilización',
+      'Configuración PY: conceptos de nómina, esquemas, reglas (PCR), IRPF, Seguridad Social y convenios',
+      'Arquitectura de integración EC a ECP (PTP): modelo de datos, mapeos de replicación y BADIs',
+      'Payroll Control Center, paralelos de nómina y análisis de discrepancias',
+      'Especificaciones funcionales de desarrollos ABAP y coordinación con el equipo técnico',
+    ],
+  },
+  {
+    id: 'auditoria',
+    soft: true,
+    titulo: 'Auditoría de nómina SAP',
+    para: 'Para quien sospecha que algo no cuadra, hereda una configuración que nadie documentó o quiere una segunda opinión antes de un go-live.',
+    resultado: 'Saber exactamente dónde está el riesgo antes de que aparezca en un recibo o en una inspección.',
+    incluye: [
+      'Revisión de esquemas, sub-esquemas y reglas: lógica, orden de proceso y efectos colaterales',
+      'Análisis de conceptos de nómina, acumuladores y bases de cotización',
+      'Contraste de resultados frente a la normativa vigente y al convenio aplicable',
+      'Revisión de la integración EC a ECP y de los errores de replicación recurrentes',
+      'Informe con hallazgos clasificados por criticidad y plan de corrección priorizado',
+    ],
+  },
+  {
+    id: 'lead-funcional',
+    soft: false,
+    titulo: 'Lead funcional como servicio',
+    para: 'Para partners e integradores que necesitan un responsable funcional de nómina con criterio, sin abrir una posición fija.',
+    resultado: 'Un proyecto con dirección funcional real, no con un reparto de tareas sin nadie mirando el conjunto.',
+    incluye: [
+      'Responsabilidad end-to-end sobre alcance, timeline y entrega del workstream de nómina',
+      'Coordinación del equipo funcional y técnico, con revisión de entregables',
+      'Interlocución directa con cliente y áreas de negocio',
+      'Identificación temprana de riesgos que puedan comprometer el go-live',
+      'Formación y acompañamiento de consultores que vienen de otras nóminas',
+    ],
+  },
+  {
+    id: 'ams',
+    soft: true,
+    titulo: 'Soporte y evolutivos (AMS)',
+    para: 'Para operaciones ya en marcha que necesitan continuidad mensual y capacidad de reacción ante cambios legales.',
+    resultado: 'Cierres mensuales sin sobresaltos y un histórico de cambios que se puede consultar.',
+    incluye: [
+      'Resolución de incidencias PA, PY y OM en producción',
+      'Aplicación de notas SAP, cambios legales y actualizaciones de convenio',
+      'Diseño e implementación de evolutivos: esquemas, reglas, registros de control y maestros',
+      'Errores de integración EC a ECP (PTP y mashups) y de cálculo en cierre',
+      'Documentación funcional de cada cambio, para que el conocimiento quede en casa',
+    ],
+  },
+];
+
+const modelos = [
+  {
+    t: 'Proyecto cerrado',
+    d: 'Alcance y entregables definidos, con hitos de facturación. Para implantaciones, migraciones y auditorías.',
+  },
+  {
+    t: 'Bolsa de horas',
+    d: 'Un volumen mensual acordado para soporte, evolutivos y consultas puntuales. Para operaciones ya en marcha.',
+  },
+  {
+    t: 'Dedicación por jornada',
+    d: 'Incorporación a un equipo con dedicación parcial o completa, en remoto y con reuniones puntuales en Madrid.',
+  },
+];
+---
+
+<Base
+  title="Servicios · Facundo Corbalan, consultor SAP HCM y ECP"
+  description="Implantación y migración a Employee Central Payroll, auditoría de nómina SAP, lead funcional como servicio y soporte AMS."
+  lang="es"
+  active="services"
+  esPath="/servicios/"
+  enPath="/en/services/"
+>
+  <section class="hero" style="padding-bottom:40px">
+    <div class="wrap">
+      <p class="eyebrow">Servicios</p>
+      <h1>Cómo trabajo</h1>
+      <p class="lead narrow">
+        Trabajo en remoto desde Madrid, como autónomo, tanto con cliente final como con partners e integradores. Cada
+        encargo empieza por entender el contexto antes de proponer alcance.
+      </p>
+    </div>
+  </section>
+
+  {bloques.map((b) => (
+    <section class={b.soft ? 'section-soft' : ''} id={b.id} style="padding-top:56px;padding-bottom:56px">
+      <div class="wrap">
+        <div class="grid grid-2" style="gap:40px">
+          <div>
+            <h2 style="margin-top:0">{b.titulo}</h2>
+            <p class="muted">{b.para}</p>
+            <p><strong>Resultado:</strong> {b.resultado}</p>
+          </div>
+          <div class="card">
+            <h3>Qué incluye</h3>
+            <ul>
+              {b.incluye.map((i) => <li>{i}</li>)}
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+  ))}
+
+  <section>
+    <div class="wrap">
+      <h2 style="margin-top:0">Modelo de colaboración</h2>
+      <div class="grid grid-3" style="margin-top:28px">
+        {modelos.map((m) => (
+          <div class="card">
+            <h3>{m.t}</h3>
+            <p class="small muted">{m.d}</p>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <section class="tight">
+    <div class="wrap">
+      <div class="cta">
+        <h2>Empecemos por el contexto</h2>
+        <p class="muted narrow" style="margin:0 auto 24px">
+          Escríbeme con dos líneas sobre tu situación y te respondo si el encargo encaja, con una primera idea de
+          esfuerzo y plazos.
+        </p>
+        <a class="btn btn-primary" href="/contacto/">Hablemos</a>
+      </div>
+    </div>
+  </section>
+</Base>

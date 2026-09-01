@@ -1,0 +1,47 @@
+---
+import Base from './Base.astro';
+
+const { frontmatter } = Astro.props;
+const { title, description, date, tags = [] } = frontmatter;
+
+const fecha = new Date(date).toLocaleDateString('es-ES', {
+  day: 'numeric',
+  month: 'long',
+  year: 'numeric',
+  timeZone: 'UTC',
+});
+
+const meta = [fecha, ...tags].join(' · ');
+---
+
+<Base
+  title={`${title} · Facundo Corbalan`}
+  description={description}
+  lang="es"
+  active="blog"
+  alt="/en/blog/"
+>
+  <section style="padding:64px 0 24px">
+    <div class="wrap narrow">
+      <p class="small muted" style="margin-bottom:12px"><a href="/blog/">Blog</a> · {meta}</p>
+      <h1 style="font-size:clamp(1.9rem,4vw,2.6rem)">{title}</h1>
+      <p class="lead">{description}</p>
+    </div>
+  </section>
+
+  <section style="padding:0 0 64px">
+    <div class="wrap narrow">
+      <article class="prose">
+        <slot />
+      </article>
+
+      <div class="cta" style="margin-top:56px;text-align:left">
+        <h3 style="margin-top:0">¿Te suena este problema en tu proyecto?</h3>
+        <p class="muted" style="margin-bottom:20px">
+          Trabajo como consultor freelance de SAP HCM y ECP. Si estás con algo parecido, cuéntamelo y te doy mi lectura.
+        </p>
+        <a class="btn btn-primary" href="/contacto/">Escribirme</a>
+      </div>
+    </div>
+  </section>
+</Base>

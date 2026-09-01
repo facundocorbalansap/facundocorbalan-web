@@ -1,0 +1,199 @@
+---
+import Base from '../../layouts/Base.astro';
+
+const certifications = [
+  { t: 'SuccessFactors Employee Central Payroll', d: 'Implementation Consultant · valid through May 2027' },
+  { t: 'SAP HCM Payroll for SAP S/4HANA', d: 'Valid through May 2027' },
+  { t: 'SAP Activate Project Manager', d: 'Valid through May 2027' },
+];
+
+const skills = [
+  'Schemas and rules (PCR)',
+  'SAP HCM PY / PA',
+  'SuccessFactors ECP',
+  'SuccessFactors EC',
+  'EC-ECP integration (PTP)',
+  'Payroll Control Center',
+  'Spanish payroll',
+  'Argentine payroll',
+  'Portuguese payroll',
+  'Mexican payroll',
+  'ABAP (functions, BADIs, Z-reports)',
+];
+
+const background = [
+  {
+    when: 'Jun 2026 · Present',
+    role: 'SAP Payroll Engineer',
+    where: 'Rimini Street · Spanish payroll · Freelance',
+    d: 'Design and delivery of Spanish payroll (PY-ES) legal changes for large end clients on SAP ECC under third-party support.',
+  },
+  {
+    when: 'Jun 2026 · Present',
+    role: 'SAP ECP & Payroll Consultant',
+    where: 'Indra | Telefónica · Spain · Freelance',
+    d: 'Support and maintenance of Spanish payroll on ECP for the fixed and mobile entities, covering roughly 60,000 active and retired employees. Reference point for ECP within the team and trainer for consultants coming from Meta4.',
+  },
+  {
+    when: 'Feb 2026 · Present',
+    role: 'SAP ECP & Payroll Lead',
+    where: 'Clever for Tech | Cale Group · Argentina · Freelance',
+    d: 'End-to-end leadership of the functional workstream in an ECP implementation for a diversified holding: 350 employees, 9 legal entities and 3 collective agreements.',
+  },
+  {
+    when: 'Sep 2025 · May 2026',
+    role: 'SAP ECP & Payroll Consultant',
+    where: 'T-Systems Iberia · Madrid',
+    d: 'ECC to ECP migration and implementation for AENA: public sector, around 9,000 employees, 4 legal entities, PA and PY, PTP integration and Payroll Control Center.',
+  },
+  {
+    when: 'Mar 2025 · Aug 2025',
+    role: 'SAP ECP & Payroll Lead',
+    where: 'Strada · Barcelona',
+    d: 'Payroll maintenance and enhancements for Serveo.',
+  },
+  {
+    when: 'Aug 2024 · Feb 2025',
+    role: 'SAP ECP & Payroll Consultant',
+    where: 'HR Path · Barcelona',
+    d: 'Spanish and Portuguese payroll implementations for Scania and Obramat.',
+  },
+  {
+    when: 'Dec 2022 · Jul 2025',
+    role: 'SAP HCM Sr. Functional Consultant',
+    where: 'Softtek · Argentina · Freelance',
+    d: 'Argentine payroll maintenance and enhancements for Ecogas, Acindar, SACDE, Blue Star Group and La Nación, among others.',
+  },
+  {
+    when: 'Feb 2022 · Dec 2022',
+    role: 'IT HR Business Solutions Specialist',
+    where: 'Tenaris · Buenos Aires',
+    d: 'In-house global SAP HCM maintenance across 8 countries. Stabilised the Argentine hourly payroll within 2 months of go-live, cutting monthly reported incidents by 70%.',
+  },
+  {
+    when: 'Dec 2019 · Feb 2022',
+    role: 'Senior SAP HCM Functional Consultant',
+    where: 'Alight Solutions · Buenos Aires',
+    d: 'LATAM payroll: implementations for Unilever, L’Oréal and Stellantis in Argentina, plus multi-client maintenance in Mexico, Colombia and Ecuador.',
+  },
+  {
+    when: 'Sep 2017 · Dec 2019',
+    role: 'Payroll Implementation Lead',
+    where: 'Adecco · Buenos Aires',
+    d: '11 client projects delivered in the payroll outsourcing division, with a reusable model configuration.',
+  },
+];
+
+const education = [
+  {
+    t: 'Spanish Payroll and Social Security',
+    d: 'Levels 1 and 2 plus specialisation · Foment Formació, Barcelona · 2023 to 2024',
+  },
+  { t: 'SAP HR Academy (THR10 to THR12) and ABAP programming', d: 'Axigma Technologies · UTN · 2022' },
+];
+---
+
+<Base
+  title="About · Facundo Corbalan, SAP HCM and ECP consultant"
+  description="Background, certifications and skills of Facundo Corbalan, senior SAP HCM Payroll and SuccessFactors Employee Central Payroll consultant based in Madrid."
+  lang="en"
+  active="about"
+  esPath="/sobre-mi/"
+  enPath="/en/about/"
+>
+  <section class="hero" style="padding-bottom:32px">
+    <div class="wrap">
+      <p class="eyebrow">About</p>
+      <h1>Eight years looking at payroll from the inside</h1>
+      <p class="lead narrow">
+        I started running payroll by hand in Buenos Aires and ended up designing the systems that calculate it for tens
+        of thousands of people. That path, from operations to design, is what lets me find the root of a problem
+        quickly.
+      </p>
+    </div>
+  </section>
+
+  <section class="tight">
+    <div class="wrap narrow">
+      <p>
+        I am a senior consultant specialised in SAP HCM Payroll and SAP SuccessFactors Employee Central Payroll, with
+        more than eight years on implementation, evolution and support projects for large, operationally complex
+        organisations in Spain, Portugal, Argentina and Latin America.
+      </p>
+      <p>
+        Payroll is my core specialisation, complemented by the design of integrations between Employee Central and ECP,
+        EC configuration, end-to-end process definition and the functional analysis of payroll-related ABAP
+        developments: calculation functions, BADIs, interfaces and Z-reports. What I care about is a solution that is
+        robust and maintainable, and risks that surface early, while they are still cheap to fix.
+      </p>
+      <p>
+        I have seen the payroll cycle from several angles: operations technician, key user on a Nexus HR to PeopleSoft
+        migration, SAP functional consultant, and in-house owner of a global payroll operation covering eight countries
+        at Tenaris. I have lived in Madrid since 2023 and work remotely, with occasional in-person meetings.
+      </p>
+    </div>
+  </section>
+
+  <section class="section-soft">
+    <div class="wrap">
+      <h2 style="margin-top:0">Active certifications</h2>
+      <div class="grid grid-3" style="margin-top:24px">
+        {certifications.map((c) => (
+          <div class="card">
+            <h3>{c.t}</h3>
+            <p class="small muted">{c.d}</p>
+          </div>
+        ))}
+      </div>
+
+      <h2>Skills</h2>
+      <ul class="tags" style="margin-top:20px">
+        {skills.map((s) => <li>{s}</li>)}
+      </ul>
+    </div>
+  </section>
+
+  <section>
+    <div class="wrap">
+      <h2 style="margin-top:0">Background</h2>
+      <div class="timeline" style="margin-top:32px">
+        {background.map((b) => (
+          <div class="item">
+            <div class="when">{b.when}</div>
+            <h3>{b.role}</h3>
+            <div class="small muted" style="margin-bottom:8px">{b.where}</div>
+            <p class="muted" style="margin:0">{b.d}</p>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <section class="section-soft tight">
+    <div class="wrap">
+      <h2 style="margin-top:0">Education</h2>
+      <div class="grid grid-2" style="margin-top:24px">
+        {education.map((e) => (
+          <div class="card">
+            <h3>{e.t}</h3>
+            <p class="small muted">{e.d}</p>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <section class="tight">
+    <div class="wrap">
+      <div class="cta">
+        <h2>Shall we work together?</h2>
+        <p class="muted narrow" style="margin:0 auto 24px">
+          I am available for implementation projects, audits and support, either with end clients or through partners.
+          You can also follow my work on
+          <a href="https://www.linkedin.com/in/facundocorbalan/" target="_blank" rel="noopener">LinkedIn</a>.
+        </p>
+        <a class="btn btn-primary" href="/en/contact/">Get in touch</a>
+      </div>
+    </div>
+  </section>
+</Base>

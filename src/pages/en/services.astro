@@ -1,0 +1,143 @@
+---
+import Base from '../../layouts/Base.astro';
+
+const blocks = [
+  {
+    id: 'implementation',
+    soft: false,
+    title: 'Employee Central Payroll implementation and migration',
+    para: 'For organisations starting a SAP payroll project from scratch, or migrating their on-premise SAP HCM to ECP.',
+    outcome:
+      'A system that calculates correctly from month one, and that your team can maintain without depending on whoever built it.',
+    includes: [
+      'Functional scope definition and gap analysis against the ECP standard',
+      'PA configuration: enterprise structure, infotypes, features, constants and posting',
+      'PY configuration: wage types, schemas, rules (PCR), income tax, social security and collective agreements',
+      'EC to ECP integration architecture (PTP): data model, replication mappings and BADIs',
+      'Payroll Control Center, parallel runs and discrepancy analysis',
+      'Functional specifications for ABAP developments and coordination with the technical team',
+    ],
+  },
+  {
+    id: 'audit',
+    soft: true,
+    title: 'SAP payroll audit',
+    para: 'For anyone who suspects something is off, has inherited an undocumented configuration, or wants a second opinion before a go-live.',
+    outcome: 'Knowing exactly where the risk sits before it shows up on a payslip or in an inspection.',
+    includes: [
+      'Review of schemas, sub-schemas and rules: logic, processing order and side effects',
+      'Analysis of wage types, cumulations and contribution bases',
+      'Results checked against current legislation and the applicable collective agreement',
+      'Review of the EC to ECP integration and of recurring replication errors',
+      'Report with findings ranked by severity and a prioritised remediation plan',
+    ],
+  },
+  {
+    id: 'functional-lead',
+    soft: false,
+    title: 'Functional lead as a service',
+    para: 'For partners and system integrators who need a payroll functional lead with judgement, without opening a permanent role.',
+    outcome: 'A project with genuine functional direction, rather than a task split with nobody watching the whole.',
+    includes: [
+      'End-to-end ownership of scope, timeline and delivery for the payroll workstream',
+      'Coordination of the functional and technical team, with deliverable reviews',
+      'Direct communication with the client and business stakeholders',
+      'Early identification of risks that could compromise the go-live',
+      'Training and mentoring for consultants coming from other payroll systems',
+    ],
+  },
+  {
+    id: 'ams',
+    soft: true,
+    title: 'Support and enhancements (AMS)',
+    para: 'For live operations that need monthly continuity and the ability to react to legal changes.',
+    outcome: 'Monthly closes without surprises, and a change history you can actually consult.',
+    includes: [
+      'Resolution of PA, PY and OM incidents in production',
+      'SAP notes, legal changes and collective agreement updates',
+      'Design and delivery of enhancements: schemas, rules, control records and master data',
+      'EC to ECP integration errors (PTP and mashups) and calculation issues at close',
+      'Functional documentation of every change, so the knowledge stays in-house',
+    ],
+  },
+];
+
+const models = [
+  {
+    t: 'Fixed-scope project',
+    d: 'Defined scope and deliverables, with billing milestones. For implementations, migrations and audits.',
+  },
+  {
+    t: 'Retainer hours',
+    d: 'An agreed monthly volume for support, enhancements and ad-hoc questions. For operations already running.',
+  },
+  { t: 'Day rate', d: 'Joining a team part-time or full-time, remotely, with occasional meetings in Madrid.' },
+];
+---
+
+<Base
+  title="Services · Facundo Corbalan, SAP HCM and ECP consultant"
+  description="Employee Central Payroll implementation and migration, SAP payroll audits, functional lead as a service and AMS support."
+  lang="en"
+  active="services"
+  esPath="/servicios/"
+  enPath="/en/services/"
+>
+  <section class="hero" style="padding-bottom:40px">
+    <div class="wrap">
+      <p class="eyebrow">Services</p>
+      <h1>How I work</h1>
+      <p class="lead narrow">
+        I work remotely from Madrid, as an independent contractor, both with end clients and with partners and system
+        integrators. Every engagement starts by understanding the context before proposing a scope.
+      </p>
+    </div>
+  </section>
+
+  {blocks.map((b) => (
+    <section class={b.soft ? 'section-soft' : ''} id={b.id} style="padding-top:56px;padding-bottom:56px">
+      <div class="wrap">
+        <div class="grid grid-2" style="gap:40px">
+          <div>
+            <h2 style="margin-top:0">{b.title}</h2>
+            <p class="muted">{b.para}</p>
+            <p><strong>Outcome:</strong> {b.outcome}</p>
+          </div>
+          <div class="card">
+            <h3>What it includes</h3>
+            <ul>
+              {b.includes.map((i) => <li>{i}</li>)}
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+  ))}
+
+  <section>
+    <div class="wrap">
+      <h2 style="margin-top:0">Engagement models</h2>
+      <div class="grid grid-3" style="margin-top:28px">
+        {models.map((m) => (
+          <div class="card">
+            <h3>{m.t}</h3>
+            <p class="small muted">{m.d}</p>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <section class="tight">
+    <div class="wrap">
+      <div class="cta">
+        <h2>Let's start with the context</h2>
+        <p class="muted narrow" style="margin:0 auto 24px">
+          Send me two lines about your situation and I will tell you whether it is a fit, along with a first read on
+          effort and timing.
+        </p>
+        <a class="btn btn-primary" href="/en/contact/">Get in touch</a>
+      </div>
+    </div>
+  </section>
+</Base>

@@ -1,5 +1,6 @@
 ---
 import Base from '../../layouts/Base.astro';
+import { grafo } from '../../lib/schema.js';
 
 const certifications = [
   {
@@ -106,6 +107,7 @@ const education = [
 ---
 
 <Base
+  schema={grafo('perfil', 'en')}
   title="About · Freelance SAP HCM Payroll and ECP consultant"
   description="Background, certifications and skills of Facundo Corbalan, senior SAP HCM Payroll and SuccessFactors Employee Central Payroll consultant based in Madrid."
   lang="en"

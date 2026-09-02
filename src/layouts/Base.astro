@@ -2,6 +2,7 @@
 import Header from '../components/Header.astro';
 import Footer from '../components/Footer.astro';
 import '../styles/global.css';
+import { sinIndexar } from '../lib/seo.js';
 
 const {
   title,
@@ -19,6 +20,10 @@ const {
 
 const site = Astro.site ?? new URL('https://facundocorbalan.com');
 const canonical = new URL(Astro.url.pathname, site).href;
+
+// Se sigue rastreando la página y se siguen sus enlaces; lo que no se hace es
+// indexarla. La lista vive en src/lib/seo.js, compartida con el sitemap.
+const noindex = sinIndexar(Astro.url.pathname);
 
 const hasAlternates = Boolean(esPath && enPath);
 const switchHref = alt ?? (lang === 'es' ? enPath : esPath) ?? '/';
@@ -39,6 +44,7 @@ const avisoIdioma =
     <title>{title}</title>
     <meta name="description" content={description} />
     <link rel="canonical" href={canonical} />
+    {noindex && <meta name="robots" content="noindex, follow" />}
     {hasAlternates && (
       <>
         <link rel="alternate" hreflang="es" href={new URL(esPath, site).href} />

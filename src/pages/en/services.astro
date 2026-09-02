@@ -1,5 +1,6 @@
 ---
 import Base from '../../layouts/Base.astro';
+import { grafo } from '../../lib/schema.js';
 
 const blocks = [
   {
@@ -148,6 +149,7 @@ const limits = [
 ---
 
 <Base
+  schema={grafo('servicios', 'en', { servicios: blocks.map((b) => b.title) })}
   title="SAP Payroll and ECP services · Facundo Corbalan"
   description="Employee Central Payroll implementation and migration, multi-country ECP architecture and integration, SAP payroll audit, Payroll Control Center, ECP L3 expert support, functional lead as a service and AMS support."
   lang="en"

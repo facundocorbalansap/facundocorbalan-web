@@ -39,6 +39,7 @@ const switchHref = alt ?? (lang === 'es' ? enPath : esPath) ?? '/';
         <link rel="alternate" hreflang="x-default" href={new URL(esPath, site).href} />
       </>
     )}
+    <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
     <link rel="sitemap" href="/sitemap-index.xml" />
     <link rel="alternate" type="application/rss+xml" title="Blog de Facundo Corbalan" href="/rss.xml" />
 

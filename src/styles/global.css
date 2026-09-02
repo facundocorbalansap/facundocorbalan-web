@@ -17,7 +17,9 @@
 
   --accent: #16243d;
   --accent-soft: #f2ede0;
-  --accent-text: #9a7c1a;
+  /* #806714 da 5.43:1 sobre blanco y 5.02:1 sobre --bg-soft (AA pide 4.5:1).
+     El dorado claro #c9a227 se reserva para bordes e iconos, no para texto. */
+  --accent-text: #806714;
   --gold: #c9a227;
 
   --shadow: 0 1px 2px rgba(16, 24, 40, 0.04), 0 8px 24px rgba(16, 24, 40, 0.06);
@@ -86,6 +88,9 @@ body {
 a {
   color: var(--accent-text);
   text-decoration: none;
+  /* El correo y otras cadenas largas romperían la maquetación en pantallas
+     estrechas si no pueden partirse. */
+  overflow-wrap: break-word;
 }
 
 a:hover {
@@ -705,6 +710,9 @@ form.contact {
   display: grid;
   gap: 16px;
   max-width: 560px;
+  /* Sin esto, el ancho mínimo del <select> (el de su opción más larga) impide
+     que el formulario encoja, y la página desborda por debajo de 375px. */
+  min-width: 0;
 }
 
 form.contact label {
@@ -712,11 +720,14 @@ form.contact label {
   gap: 6px;
   font-size: 0.92rem;
   font-weight: 500;
+  min-width: 0;
 }
 
 form.contact input,
 form.contact select,
 form.contact textarea {
+  min-width: 0;
+  max-width: 100%;
   padding: 11px 13px;
   font: inherit;
   font-size: 0.97rem;

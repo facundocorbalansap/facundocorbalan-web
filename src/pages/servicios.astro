@@ -19,8 +19,25 @@ const bloques = [
     ],
   },
   {
-    id: 'soporte-experto',
+    id: 'multipais',
     soft: true,
+    titulo: 'Arquitectura e integración ECP en despliegues multipaís',
+    para: 'Para organizaciones que llevan a ECP la nómina de varios países, y para partners que necesitan a alguien que sostenga el conjunto mientras cada país aporta su especialista legal.',
+    resultado:
+      'Un template que el país siguiente puede adoptar sin rediseñar el conjunto, y una integración única que no se rompe cada vez que entra un país.',
+    incluye: [
+      'Modelo de despliegue: qué se decide una vez para todos y qué queda local (estructura de empresa, agrupaciones, catálogo de conceptos y nomenclatura)',
+      'Arquitectura de una instancia de EC hacia uno o varios ECP: agrupaciones de país, segregación de datos y autorizaciones',
+      'Diseño único de la replicación EC a ECP (PTP), con las variaciones de cada país aisladas y monitorizadas',
+      'Coordinación funcional de los especialistas locales: qué se les pide, en qué formato y cómo se revisa lo que entregan',
+      'Plan de paralelos multipaís: criterios de aceptación comunes y un calendario que no colapse entre países',
+      'Gobierno del template tras el go-live: quién aprueba un cambio que afecta a todos y cómo entra el país siguiente',
+      'No incluye la configuración legal de cada país: esa la hace el especialista local, y mi trabajo es que encaje en el conjunto',
+    ],
+  },
+  {
+    id: 'soporte-experto',
+    soft: false,
     titulo: 'Soporte experto ECP / L3 on demand',
     para: 'Para equipos AMS, partners o clientes que ya operan ECP y necesitan escalado especializado cuando una incidencia supera el soporte funcional habitual.',
     resultado:
@@ -36,7 +53,7 @@ const bloques = [
   },
   {
     id: 'auditoria',
-    soft: false,
+    soft: true,
     titulo: 'Auditoría de nómina SAP',
     para: 'Para quien sospecha que algo no cuadra, hereda una configuración que nadie documentó o quiere una segunda opinión antes de un go-live.',
     resultado: 'Saber exactamente dónde está el riesgo antes de que aparezca en un recibo o en una inspección.',
@@ -50,7 +67,7 @@ const bloques = [
   },
   {
     id: 'lead-funcional',
-    soft: true,
+    soft: false,
     titulo: 'Lead funcional como servicio',
     para: 'Para partners e integradores que necesitan un responsable funcional de nómina con criterio, sin abrir una posición fija.',
     resultado: 'Un proyecto con dirección funcional real, no con un reparto de tareas sin nadie mirando el conjunto.',
@@ -64,7 +81,7 @@ const bloques = [
   },
   {
     id: 'ams',
-    soft: false,
+    soft: true,
     titulo: 'Soporte y evolutivos (AMS)',
     para: 'Para operaciones ya en marcha que necesitan continuidad mensual y capacidad de reacción ante cambios legales.',
     resultado: 'Cierres mensuales sin sobresaltos y un histórico de cambios que se puede consultar.',
@@ -119,7 +136,7 @@ const limites = [
 
 <Base
   title="Servicios: implantación ECP, auditoría de nómina y soporte L3 · Facundo Corbalan"
-  description="Implantación y migración a Employee Central Payroll, soporte experto ECP / L3, auditoría de nómina SAP, lead funcional como servicio y soporte AMS."
+  description="Implantación y migración a Employee Central Payroll, arquitectura e integración ECP multipaís, soporte experto ECP / L3, auditoría de nómina SAP, lead funcional como servicio y soporte AMS."
   lang="es"
   active="services"
   esPath="/servicios/"

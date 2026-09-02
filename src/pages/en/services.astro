@@ -19,8 +19,25 @@ const blocks = [
     ],
   },
   {
-    id: 'expert-support',
+    id: 'multi-country',
     soft: true,
+    title: 'ECP architecture and integration on multi-country rollouts',
+    para: 'For organisations moving payroll for several countries onto ECP, and for partners who need someone holding the whole together while each country brings its own legal specialist.',
+    outcome:
+      'A template the next country can adopt without redesigning the whole, and a single integration that does not break every time a country joins.',
+    includes: [
+      'Rollout model: what is decided once for everyone and what stays local (enterprise structure, groupings, wage type catalogue and naming)',
+      'Architecture from one EC instance to one or several ECP systems: country groupings, data segregation and authorisations',
+      'A single EC to ECP replication design (PTP), with each country variation isolated and monitored',
+      'Functional coordination of the local specialists: what they are asked for, in what format, and how their delivery is reviewed',
+      'Multi-country parallel run plan: shared acceptance criteria and a calendar that does not collapse across countries',
+      'Template governance after go-live: who approves a change that affects everyone, and how the next country joins',
+      'It does not include the legal configuration of each country: that belongs to the local specialist, and my job is to make it fit the whole',
+    ],
+  },
+  {
+    id: 'expert-support',
+    soft: false,
     title: 'ECP expert support / L3 on demand',
     para: 'For AMS teams, partners or clients already running ECP who need specialist escalation when an incident goes beyond standard functional support.',
     outcome: 'Getting the hard problem solved without keeping a senior ECP consultant on full-time allocation.',
@@ -35,7 +52,7 @@ const blocks = [
   },
   {
     id: 'audit',
-    soft: false,
+    soft: true,
     title: 'SAP payroll audit',
     para: 'For anyone who suspects something is off, has inherited an undocumented configuration, or wants a second opinion before a go-live.',
     outcome: 'Knowing exactly where the risk sits before it shows up on a payslip or in an inspection.',
@@ -45,6 +62,23 @@ const blocks = [
       'Results checked against current legislation and the applicable collective agreement',
       'Review of the EC to ECP integration and of recurring replication errors',
       'Report with findings ranked by severity and a prioritised remediation plan',
+    ],
+  },
+  {
+    id: 'pcc',
+    soft: false,
+    title: 'Payroll Control Center: validations and payroll close automation',
+    para: 'For teams already running SAP payroll who still close on reports, spreadsheets and checks that depend on somebody remembering to look.',
+    outcome:
+      'Errors surface before the final calculation, flagged per employee and with an owner assigned, instead of surfacing on a payslip.',
+    includes: [
+      'Assessment of the current close: what is checked today, by whom and at what cost, as a measurable baseline',
+      'A catalogue of client-specific validations: net pay variance against the previous period, net amounts out of range, missing bank details, income tax outside the expected band, hires and leavers without a match, contract and collective agreement mismatches',
+      'Configuration of payroll policies and processes in PCC, with thresholds agreed with the payroll team rather than left at their defaults',
+      'Definition of the close steps and of who resolves each alert, through to the point where a company code is declared closed',
+      'Automation of the parallel run comparison during a migration: mass comparison against the legacy system, with differences classified',
+      'A follow-up measurement on the same baseline, to know whether the close actually improved',
+      'It does not include automating a broken process: if the problem is the configuration rather than the control, I say so before starting',
     ],
   },
   {
@@ -92,11 +126,30 @@ const models = [
     d: 'Discrete senior interventions with no fixed allocation, for escalations, audits, architecture decisions or critical incidents.',
   },
 ];
+
+const limits = [
+  {
+    t: 'The "soft" SuccessFactors modules',
+    d: 'Recruiting, Onboarding, Performance & Goals, Compensation, Succession and Learning. I know them as neighbours of payroll: I do not implement or configure them.',
+  },
+  {
+    t: 'Payroll outside SAP',
+    d: 'Workday, Meta4 and equivalents. I can advise on how they integrate with SAP, but I am not a consultant on those tools.',
+  },
+  {
+    t: 'Local legislation in other countries',
+    d: 'The legal configuration of a payroll that is not the Spanish one belongs to a specialist in that country. I do work alongside that person: ECP architecture, EC to ECP integration and functional coordination across the whole.',
+  },
+  {
+    t: 'Filling a seat at the lowest hourly rate',
+    d: 'If the search is for an interchangeable profile priced by the hour, other options fit better. I work on judgement and on accountability for the outcome.',
+  },
+];
 ---
 
 <Base
   title="SAP Payroll and ECP services · Facundo Corbalan"
-  description="Employee Central Payroll implementation and migration, SAP payroll audit, ECP L3 expert support, functional lead as a service and AMS support."
+  description="Employee Central Payroll implementation and migration, multi-country ECP architecture and integration, SAP payroll audit, Payroll Control Center, ECP L3 expert support, functional lead as a service and AMS support."
   lang="en"
   active="services"
   esPath="/servicios/"
@@ -144,6 +197,26 @@ const models = [
           </div>
         ))}
       </div>
+    </div>
+  </section>
+
+  <section class="section-soft">
+    <div class="wrap">
+      <h2 style="margin-top:0">Where I cannot help you</h2>
+      <p class="muted narrow" style="margin-top:12px">
+        I would rather tell you the boundary before a meeting than after an invoice. This is what I do not do.
+      </p>
+      <div class="grid grid-2" style="margin-top:28px">
+        {limits.map((l) => (
+          <div class="card">
+            <h3>{l.t}</h3>
+            <p class="small muted">{l.d}</p>
+          </div>
+        ))}
+      </div>
+      <p class="small muted" style="margin-top:24px">
+        In the first three cases, write to me anyway: I usually know who does it well, and it saves you weeks of searching.
+      </p>
     </div>
   </section>
 

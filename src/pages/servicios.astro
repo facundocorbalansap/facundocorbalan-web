@@ -19,8 +19,25 @@ const bloques = [
     ],
   },
   {
-    id: 'soporte-experto',
+    id: 'multipais',
     soft: true,
+    titulo: 'Arquitectura e integración ECP en despliegues multipaís',
+    para: 'Para organizaciones que llevan a ECP la nómina de varios países, y para partners que necesitan a alguien que sostenga el conjunto mientras cada país aporta su especialista legal.',
+    resultado:
+      'Un template que el país siguiente puede adoptar sin rediseñar el conjunto, y una integración única que no se rompe cada vez que entra un país.',
+    incluye: [
+      'Modelo de despliegue: qué se decide una vez para todos y qué queda local (estructura de empresa, agrupaciones, catálogo de conceptos y nomenclatura)',
+      'Arquitectura de una instancia de EC hacia uno o varios ECP: agrupaciones de país, segregación de datos y autorizaciones',
+      'Diseño único de la replicación EC a ECP (PTP), con las variaciones de cada país aisladas y monitorizadas',
+      'Coordinación funcional de los especialistas locales: qué se les pide, en qué formato y cómo se revisa lo que entregan',
+      'Plan de paralelos multipaís: criterios de aceptación comunes y un calendario que no colapse entre países',
+      'Gobierno del template tras el go-live: quién aprueba un cambio que afecta a todos y cómo entra el país siguiente',
+      'No incluye la configuración legal de cada país: esa la hace el especialista local, y mi trabajo es que encaje en el conjunto',
+    ],
+  },
+  {
+    id: 'soporte-experto',
+    soft: false,
     titulo: 'Soporte experto ECP / L3 on demand',
     para: 'Para equipos AMS, partners o clientes que ya operan ECP y necesitan escalado especializado cuando una incidencia supera el soporte funcional habitual.',
     resultado:
@@ -36,7 +53,7 @@ const bloques = [
   },
   {
     id: 'auditoria',
-    soft: false,
+    soft: true,
     titulo: 'Auditoría de nómina SAP',
     para: 'Para quien sospecha que algo no cuadra, hereda una configuración que nadie documentó o quiere una segunda opinión antes de un go-live.',
     resultado: 'Saber exactamente dónde está el riesgo antes de que aparezca en un recibo o en una inspección.',
@@ -46,6 +63,23 @@ const bloques = [
       'Contraste de resultados frente a la normativa vigente y al convenio aplicable',
       'Revisión de la integración EC a ECP y de los errores de replicación recurrentes',
       'Informe con hallazgos clasificados por criticidad y plan de corrección priorizado',
+    ],
+  },
+  {
+    id: 'pcc',
+    soft: false,
+    titulo: 'Payroll Control Center: validaciones y automatización del cierre',
+    para: 'Para equipos que ya operan nómina SAP y siguen cerrando a base de listados, hojas de cálculo y comprobaciones que dependen de que alguien se acuerde de mirar.',
+    resultado:
+      'Los errores aparecen antes del cálculo definitivo, señalados por empleado y con un responsable asignado, en lugar de aparecer en un recibo.',
+    incluye: [
+      'Diagnóstico del cierre actual: qué se comprueba hoy, quién lo hace y cuánto cuesta, como línea base medible',
+      'Catálogo de validaciones propias: variación de neto frente al periodo anterior, netos fuera de rango, datos bancarios ausentes, IRPF fuera de horquilla, altas y bajas sin correspondencia, incoherencias entre convenio y contrato',
+      'Configuración de las políticas de nómina y de los procesos en PCC, con umbrales acordados con Nómina y no dejados por defecto',
+      'Definición de los pasos del cierre y de quién resuelve cada alerta, hasta el punto en que una sociedad se declara cerrada',
+      'Automatización de la comparación de paralelos en una migración: contraste masivo frente al sistema anterior, con las diferencias clasificadas',
+      'Medición posterior sobre la misma línea base, para saber si el cierre mejoró de verdad',
+      'No incluye automatizar un proceso roto: si el problema está en la configuración y no en el control, lo digo antes de empezar',
     ],
   },
   {
@@ -96,11 +130,30 @@ const modelos = [
     d: 'Intervenciones senior puntuales, sin dedicación fija, para escalaciones, auditorías, decisiones de arquitectura o incidencias críticas.',
   },
 ];
+
+const limites = [
+  {
+    t: 'Los módulos «blandos» de SuccessFactors',
+    d: 'Recruiting, Onboarding, Performance & Goals, Compensation, Succession y Learning. Los conozco como vecinos de la nómina: no los implanto ni los configuro.',
+  },
+  {
+    t: 'Nómina fuera de SAP',
+    d: 'Workday, Meta4 y equivalentes. Puedo opinar sobre su integración con SAP, pero no soy consultor de esas herramientas.',
+  },
+  {
+    t: 'La normativa local de otros países',
+    d: 'La configuración legal de una nómina que no es la española la lleva un especialista de ese país. Con esa figura sí colaboro: arquitectura ECP, integración EC a ECP y coordinación funcional del conjunto.',
+  },
+  {
+    t: 'Cubrir una silla al menor coste por hora',
+    d: 'Si la búsqueda es un perfil intercambiable por tarifa, hay opciones que encajan mejor que yo. Trabajo por criterio y por responsabilidad sobre el resultado.',
+  },
+];
 ---
 
 <Base
   title="Servicios: implantación ECP, auditoría de nómina y soporte L3 · Facundo Corbalan"
-  description="Implantación y migración a Employee Central Payroll, soporte experto ECP / L3, auditoría de nómina SAP, lead funcional como servicio y soporte AMS."
+  description="Implantación y migración a Employee Central Payroll, arquitectura e integración ECP multipaís, soporte experto ECP / L3, auditoría de nómina SAP, Payroll Control Center, lead funcional como servicio y soporte AMS."
   lang="es"
   active="services"
   esPath="/servicios/"
@@ -148,6 +201,26 @@ const modelos = [
           </div>
         ))}
       </div>
+    </div>
+  </section>
+
+  <section class="section-soft">
+    <div class="wrap">
+      <h2 style="margin-top:0">Dónde no puedo ayudarte</h2>
+      <p class="muted narrow" style="margin-top:12px">
+        Prefiero decirte el límite antes de una reunión que después de una factura. Esto es lo que no hago.
+      </p>
+      <div class="grid grid-2" style="margin-top:28px">
+        {limites.map((l) => (
+          <div class="card">
+            <h3>{l.t}</h3>
+            <p class="small muted">{l.d}</p>
+          </div>
+        ))}
+      </div>
+      <p class="small muted" style="margin-top:24px">
+        En los tres primeros casos, escríbeme igualmente: casi siempre sé quién lo hace bien y te ahorro semanas de búsqueda.
+      </p>
     </div>
   </section>
 

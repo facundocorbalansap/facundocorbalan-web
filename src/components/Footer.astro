@@ -6,6 +6,8 @@ const tagline = es
   ? 'Consultor SAP HCM / Payroll / Employee Central Payroll. Madrid.'
   : 'SAP HCM / Payroll / Employee Central Payroll consultant. Madrid, Spain.';
 
+const legal = es ? { href: '/privacidad/', texto: 'Aviso legal y privacidad' } : { href: '/en/privacy/', texto: 'Legal notice and privacy' };
+
 const wa = es
   ? 'https://wa.me/34614268385?text=Hola%20Facundo%2C%20te%20escribo%20desde%20tu%20web%20por%20un%20proyecto%20de%20n%C3%B3mina%20SAP.'
   : 'https://wa.me/34614268385?text=Hi%20Facundo%2C%20I%20found%20your%20website%20and%20I%20would%20like%20to%20talk%20about%20a%20SAP%20payroll%20project.';
@@ -24,6 +26,9 @@ const wa = es
         <a href="https://www.malt.es/profile/facundocorbalan" target="_blank" rel="noopener">Malt</a> ·
         <a href={wa} target="_blank" rel="noopener">WhatsApp</a> ·
         <a href="/rss.xml">RSS</a>
+      </div>
+      <div style="margin-top:8px">
+        <a href={legal.href}>{legal.texto}</a>
       </div>
       <div style="margin-top:8px">© 2026</div>
     </div>

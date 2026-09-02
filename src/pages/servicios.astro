@@ -66,8 +66,25 @@ const bloques = [
     ],
   },
   {
-    id: 'lead-funcional',
+    id: 'pcc',
     soft: false,
+    titulo: 'Payroll Control Center: validaciones y automatización del cierre',
+    para: 'Para equipos que ya operan nómina SAP y siguen cerrando a base de listados, hojas de cálculo y comprobaciones que dependen de que alguien se acuerde de mirar.',
+    resultado:
+      'Los errores aparecen antes del cálculo definitivo, señalados por empleado y con un responsable asignado, en lugar de aparecer en un recibo.',
+    incluye: [
+      'Diagnóstico del cierre actual: qué se comprueba hoy, quién lo hace y cuánto cuesta, como línea base medible',
+      'Catálogo de validaciones propias: variación de neto frente al periodo anterior, netos fuera de rango, datos bancarios ausentes, IRPF fuera de horquilla, altas y bajas sin correspondencia, incoherencias entre convenio y contrato',
+      'Configuración de las políticas de nómina y de los procesos en PCC, con umbrales acordados con Nómina y no dejados por defecto',
+      'Definición de los pasos del cierre y de quién resuelve cada alerta, hasta el punto en que una sociedad se declara cerrada',
+      'Automatización de la comparación de paralelos en una migración: contraste masivo frente al sistema anterior, con las diferencias clasificadas',
+      'Medición posterior sobre la misma línea base, para saber si el cierre mejoró de verdad',
+      'No incluye automatizar un proceso roto: si el problema está en la configuración y no en el control, lo digo antes de empezar',
+    ],
+  },
+  {
+    id: 'lead-funcional',
+    soft: true,
     titulo: 'Lead funcional como servicio',
     para: 'Para partners e integradores que necesitan un responsable funcional de nómina con criterio, sin abrir una posición fija.',
     resultado: 'Un proyecto con dirección funcional real, no con un reparto de tareas sin nadie mirando el conjunto.',
@@ -81,7 +98,7 @@ const bloques = [
   },
   {
     id: 'ams',
-    soft: true,
+    soft: false,
     titulo: 'Soporte y evolutivos (AMS)',
     para: 'Para operaciones ya en marcha que necesitan continuidad mensual y capacidad de reacción ante cambios legales.',
     resultado: 'Cierres mensuales sin sobresaltos y un histórico de cambios que se puede consultar.',
@@ -136,7 +153,7 @@ const limites = [
 
 <Base
   title="Servicios: implantación ECP, auditoría de nómina y soporte L3 · Facundo Corbalan"
-  description="Implantación y migración a Employee Central Payroll, arquitectura e integración ECP multipaís, soporte experto ECP / L3, auditoría de nómina SAP, lead funcional como servicio y soporte AMS."
+  description="Implantación y migración a Employee Central Payroll, arquitectura e integración ECP multipaís, soporte experto ECP / L3, auditoría de nómina SAP, Payroll Control Center, lead funcional como servicio y soporte AMS."
   lang="es"
   active="services"
   esPath="/servicios/"

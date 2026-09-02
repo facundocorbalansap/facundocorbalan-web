@@ -1,10 +1,15 @@
 ---
 import Base from '../../layouts/Base.astro';
+import { grafo } from '../../lib/schema.js';
 
 const services = [
   {
     t: 'ECP implementation and migration',
     d: 'From scope definition to go-live: PA and PY configuration, schemas and rules, PTP integration between Employee Central and ECP, Payroll Control Center and parallel runs.',
+  },
+  {
+    t: 'Multi-country ECP architecture',
+    d: 'Owning the architecture and the integration when payroll for several countries moves to ECP, with a local specialist for the legal side in each one.',
   },
   {
     t: 'ECP expert support / L3 on demand',
@@ -13,6 +18,10 @@ const services = [
   {
     t: 'Payroll audit',
     d: 'Independent review of schemas, rules, wage types and cumulations. Catching deviations before they reach the payslip, with a fix plan prioritised by impact.',
+  },
+  {
+    t: 'Payroll Control Center',
+    d: 'Client-specific validations, per-employee alerts and close automation, so errors surface before the final calculation instead of on a payslip.',
   },
   {
     t: 'Functional lead as a service',
@@ -78,6 +87,7 @@ const cases = [
 ---
 
 <Base
+  schema={grafo('home', 'en')}
   title="SAP Payroll and Employee Central Payroll consultant · Facundo Corbalan"
   description="Freelance senior SAP HCM Payroll and SuccessFactors Employee Central Payroll consultant based in Spain. ECP implementation and migration, payroll audit and L3 expert support."
   lang="en"
@@ -133,7 +143,7 @@ const cases = [
   <section>
     <div class="wrap">
       <p class="eyebrow">How I can help</p>
-      <h2 style="margin-top:0">Five ways to work together</h2>
+      <h2 style="margin-top:0">Seven ways to work together</h2>
       <div class="grid grid-2" style="margin-top:32px">
         {services.map((s) => (
           <div class="card">

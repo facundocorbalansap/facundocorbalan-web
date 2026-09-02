@@ -1,5 +1,6 @@
 ---
 import Base from '../layouts/Base.astro';
+import { grafo } from '../lib/schema.js';
 
 const bloques = [
   {
@@ -152,6 +153,7 @@ const limites = [
 ---
 
 <Base
+  schema={grafo('servicios', 'es', { servicios: bloques.map((b) => b.titulo) })}
   title="Servicios: implantación ECP, auditoría de nómina y soporte L3 · Facundo Corbalan"
   description="Implantación y migración a Employee Central Payroll, arquitectura e integración ECP multipaís, soporte experto ECP / L3, auditoría de nómina SAP, Payroll Control Center, lead funcional como servicio y soporte AMS."
   lang="es"

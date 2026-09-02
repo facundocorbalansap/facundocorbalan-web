@@ -16,6 +16,8 @@ const {
   // Para páginas sin equivalente traducido (los artículos del blog),
   // el conmutador necesita un destino explícito.
   alt,
+  // Datos estructurados de la página. Se construyen en src/lib/schema.js.
+  schema,
 } = Astro.props;
 
 const site = Astro.site ?? new URL('https://facundocorbalan.com');
@@ -63,6 +65,8 @@ const avisoIdioma =
     <meta property="og:url" content={canonical} />
     <meta property="og:image" content={new URL('/og.png', site).href} />
     <meta name="twitter:card" content="summary_large_image" />
+
+    {schema && <script type="application/ld+json" set:html={JSON.stringify(schema)} />}
 
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />

@@ -48,6 +48,6 @@ Antes de empezar merece la pena anotar algo muy simple: cuántas horas se dedica
 
 Sin ese número, dentro de seis meses nadie va a poder decir si sirvió de algo. Con él, la conversación de la renovación se tiene sola.
 
-En la migración de AENA a Employee Central Payroll puse en marcha el Payroll Control Center como parte del alcance, y la parte que más discusión requirió no fue la técnica: fue acordar qué se consideraba una desviación y quién la resolvía.
+Un apunte final, que es lo que más me sorprendió la primera vez: la parte que más discusión genera al montar PCC no es la técnica. Es acordar qué se considera una desviación y quién la resuelve. Esa conversación conviene tenerla al principio y por escrito, porque es la que decide si el sistema acaba usándose o ignorándose.
 
 ¿Estás valorando montar PCC o tienes uno funcionando a medias? [Cuéntame el caso](/contacto/).

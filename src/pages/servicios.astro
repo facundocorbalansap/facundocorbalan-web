@@ -96,6 +96,25 @@ const modelos = [
     d: 'Intervenciones senior puntuales, sin dedicación fija, para escalaciones, auditorías, decisiones de arquitectura o incidencias críticas.',
   },
 ];
+
+const limites = [
+  {
+    t: 'Los módulos «blandos» de SuccessFactors',
+    d: 'Recruiting, Onboarding, Performance & Goals, Compensation, Succession y Learning. Los conozco como vecinos de la nómina: no los implanto ni los configuro.',
+  },
+  {
+    t: 'Nómina fuera de SAP',
+    d: 'Workday, Meta4 y equivalentes. Puedo opinar sobre su integración con SAP, pero no soy consultor de esas herramientas.',
+  },
+  {
+    t: 'La normativa local de otros países',
+    d: 'Trabajo la nómina de España. En despliegues multipaís puedo llevar la arquitectura y la coordinación funcional, con un especialista local para la legislación de cada país.',
+  },
+  {
+    t: 'Cubrir una silla al menor coste por hora',
+    d: 'Si la búsqueda es un perfil intercambiable por tarifa, hay opciones que encajan mejor que yo. Trabajo por criterio y por responsabilidad sobre el resultado.',
+  },
+];
 ---
 
 <Base
@@ -148,6 +167,26 @@ const modelos = [
           </div>
         ))}
       </div>
+    </div>
+  </section>
+
+  <section class="section-soft">
+    <div class="wrap">
+      <h2 style="margin-top:0">Dónde no puedo ayudarte</h2>
+      <p class="muted narrow" style="margin-top:12px">
+        Prefiero decirte el límite antes de una reunión que después de una factura. Esto es lo que no hago.
+      </p>
+      <div class="grid grid-2" style="margin-top:28px">
+        {limites.map((l) => (
+          <div class="card">
+            <h3>{l.t}</h3>
+            <p class="small muted">{l.d}</p>
+          </div>
+        ))}
+      </div>
+      <p class="small muted" style="margin-top:24px">
+        En los tres primeros casos, escríbeme igualmente: casi siempre sé quién lo hace bien y te ahorro semanas de búsqueda.
+      </p>
     </div>
   </section>
 

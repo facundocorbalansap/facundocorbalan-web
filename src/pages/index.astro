@@ -1,5 +1,6 @@
 ---
 import Base from '../layouts/Base.astro';
+import { grafo } from '../lib/schema.js';
 import { posts, fechaEs } from '../lib/posts.js';
 
 const ultimos = posts.slice(0, 2);
@@ -10,12 +11,20 @@ const servicios = [
     d: 'De la definición del alcance al arranque en productivo: configuración PA y PY, esquemas y reglas, integración PTP entre Employee Central y ECP, Payroll Control Center y paralelos de nómina.',
   },
   {
+    t: 'Arquitectura ECP multipaís',
+    d: 'Dueño de la arquitectura y de la integración cuando la nómina de varios países va a ECP, con un especialista local para la legislación de cada uno.',
+  },
+  {
     t: 'Soporte experto ECP / L3 on demand',
     d: 'Escalado especializado para equipos AMS, partners y clientes que ya operan ECP: troubleshooting complejo, integración EC–ECP, replicación, Payroll Control Center y escalaciones productivas.',
   },
   {
     t: 'Auditoría de nómina',
     d: 'Revisión independiente de esquemas, reglas, conceptos y acumuladores. Detección de desviaciones antes de que lleguen al recibo, con plan de corrección priorizado por impacto.',
+  },
+  {
+    t: 'Payroll Control Center',
+    d: 'Validaciones propias, alertas por empleado y automatización del cierre, para que los errores aparezcan antes del cálculo definitivo y no en un recibo.',
   },
   {
     t: 'Lead funcional como servicio',
@@ -81,6 +90,7 @@ const casos = [
 ---
 
 <Base
+  schema={grafo('home', 'es')}
   title="Consultor SAP HCM Payroll y Employee Central Payroll · Facundo Corbalan"
   description="Consultor freelance senior de SAP HCM Payroll y SuccessFactors Employee Central Payroll en Madrid. Implantación y migración a ECP, auditoría de nómina y soporte experto L3."
   lang="es"
@@ -136,7 +146,7 @@ const casos = [
   <section>
     <div class="wrap">
       <p class="eyebrow">En qué puedo ayudar</p>
-      <h2 style="margin-top:0">Cinco formas de trabajar juntos</h2>
+      <h2 style="margin-top:0">Siete formas de trabajar juntos</h2>
       <div class="grid grid-2" style="margin-top:32px">
         {servicios.map((s) => (
           <div class="card">

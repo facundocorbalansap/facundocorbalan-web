@@ -22,6 +22,13 @@ const canonical = new URL(Astro.url.pathname, site).href;
 
 const hasAlternates = Boolean(esPath && enPath);
 const switchHref = alt ?? (lang === 'es' ? enPath : esPath) ?? '/';
+
+// El aviso de idioma solo se le muestra a quien navega en el idioma contrario,
+// así que su texto va en ese otro idioma.
+const avisoIdioma =
+  lang === 'es'
+    ? { texto: 'This site is also available in English.', enlace: 'Read in English', cerrar: 'Dismiss' }
+    : { texto: 'Esta web también está disponible en español.', enlace: 'Ver en español', cerrar: 'Cerrar' };
 ---
 
 <!doctype html>
@@ -59,10 +66,45 @@ const switchHref = alt ?? (lang === 'es' ? enPath : esPath) ?? '/';
     />
   </head>
   <body>
+    <div id="lang-hint" class="lang-hint" hidden>
+      <div class="wrap inner">
+        <span>{avisoIdioma.texto}</span>
+        <a href={switchHref}>{avisoIdioma.enlace}</a>
+        <button type="button" aria-label={avisoIdioma.cerrar}>&times;</button>
+      </div>
+    </div>
+
     <Header lang={lang} active={active} alt={switchHref} />
     <main>
       <slot />
     </main>
     <Footer lang={lang} />
+
+    <script is:inline>
+      // Sugiere la otra versión del sitio cuando el idioma del navegador no
+      // coincide con el de la página. No redirige: solo ofrece el enlace, para
+      // no romper el rastreo de los buscadores ni la elección del visitante.
+      (function () {
+        var aviso = document.getElementById('lang-hint');
+        if (!aviso) return;
+        var clave = 'aviso-idioma-oculto';
+        try {
+          if (localStorage.getItem(clave)) return;
+        } catch (e) {}
+        var paginaEnEspanol = document.documentElement.lang === 'es';
+        var idiomas = navigator.languages || [navigator.language || ''];
+        var hablaEspanol = Array.prototype.some.call(idiomas, function (l) {
+          return /^es\b/i.test(l);
+        });
+        if (paginaEnEspanol === hablaEspanol) return;
+        aviso.hidden = false;
+        aviso.querySelector('button').addEventListener('click', function () {
+          aviso.hidden = true;
+          try {
+            localStorage.setItem(clave, '1');
+          } catch (e) {}
+        });
+      })();
+    </script>
   </body>
 </html>

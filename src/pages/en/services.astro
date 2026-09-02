@@ -92,6 +92,25 @@ const models = [
     d: 'Discrete senior interventions with no fixed allocation, for escalations, audits, architecture decisions or critical incidents.',
   },
 ];
+
+const limits = [
+  {
+    t: 'The "soft" SuccessFactors modules',
+    d: 'Recruiting, Onboarding, Performance & Goals, Compensation, Succession and Learning. I know them as neighbours of payroll: I do not implement or configure them.',
+  },
+  {
+    t: 'Payroll outside SAP',
+    d: 'Workday, Meta4 and equivalents. I can advise on how they integrate with SAP, but I am not a consultant on those tools.',
+  },
+  {
+    t: 'Local legislation in other countries',
+    d: 'I work Spanish payroll. On multi-country rollouts I can own the architecture and the functional coordination, with a local specialist for the legal side in each country.',
+  },
+  {
+    t: 'Filling a seat at the lowest hourly rate',
+    d: 'If the search is for an interchangeable profile priced by the hour, other options fit better. I work on judgement and on accountability for the outcome.',
+  },
+];
 ---
 
 <Base
@@ -144,6 +163,26 @@ const models = [
           </div>
         ))}
       </div>
+    </div>
+  </section>
+
+  <section class="section-soft">
+    <div class="wrap">
+      <h2 style="margin-top:0">Where I cannot help you</h2>
+      <p class="muted narrow" style="margin-top:12px">
+        I would rather tell you the boundary before a meeting than after an invoice. This is what I do not do.
+      </p>
+      <div class="grid grid-2" style="margin-top:28px">
+        {limits.map((l) => (
+          <div class="card">
+            <h3>{l.t}</h3>
+            <p class="small muted">{l.d}</p>
+          </div>
+        ))}
+      </div>
+      <p class="small muted" style="margin-top:24px">
+        In the first three cases, write to me anyway: I usually know who does it well, and it saves you weeks of searching.
+      </p>
     </div>
   </section>
 

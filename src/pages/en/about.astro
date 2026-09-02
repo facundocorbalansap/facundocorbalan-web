@@ -2,9 +2,21 @@
 import Base from '../../layouts/Base.astro';
 
 const certifications = [
-  { t: 'SuccessFactors Employee Central Payroll', d: 'Implementation Consultant · valid through May 2027' },
-  { t: 'SAP HCM Payroll for SAP S/4HANA', d: 'Valid through May 2027' },
-  { t: 'SAP Activate Project Manager', d: 'Valid through May 2027' },
+  {
+    t: 'SuccessFactors Employee Central Payroll',
+    d: 'Implementation Consultant · valid through May 2027',
+    badge: 'https://www.credly.com/badges/5224e2bf-46e8-48c7-b627-222aea46774c',
+  },
+  {
+    t: 'SAP HCM Payroll for SAP S/4HANA',
+    d: 'Valid through May 2027',
+    badge: 'https://www.credly.com/badges/16b94225-cf76-441a-8fd5-293418a3e0c2',
+  },
+  {
+    t: 'SAP Activate Project Manager',
+    d: 'Valid through May 2027',
+    badge: 'https://www.credly.com/badges/7ef64642-18f3-4617-b702-03118e6f4cbc',
+  },
 ];
 
 const skills = [
@@ -143,6 +155,9 @@ const education = [
           <div class="card">
             <h3>{c.t}</h3>
             <p class="small muted">{c.d}</p>
+            <p class="small" style="margin-bottom:0">
+              <a href={c.badge} target="_blank" rel="noopener">Verify on Credly →</a>
+            </p>
           </div>
         ))}
       </div>
@@ -188,9 +203,9 @@ const education = [
     <div class="wrap">
       <h2 style="margin-top:0">Professional profiles</h2>
       <p class="muted narrow">
-        You can also verify my track record on
-        <a href="https://www.linkedin.com/in/facundocorbalan/" target="_blank" rel="noopener">LinkedIn</a>
-        and my freelance activity on
+        You can also verify my track record on{' '}
+        <a href="https://www.linkedin.com/in/facundocorbalan/" target="_blank" rel="noopener">LinkedIn</a>{' '}
+        and my freelance activity on{' '}
         <a href="https://www.malt.es/profile/facundocorbalan" target="_blank" rel="noopener">Malt</a>, where I hold
         Supermalter status.
       </p>

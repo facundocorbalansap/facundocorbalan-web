@@ -1,5 +1,6 @@
 ---
 import Base from '../layouts/Base.astro';
+import { grafo } from '../lib/schema.js';
 
 const certificaciones = [
   {
@@ -106,6 +107,7 @@ const formacion = [
 ---
 
 <Base
+  schema={grafo('perfil', 'es')}
   title="Sobre mí · Consultor freelance SAP HCM Payroll y ECP en Madrid"
   description="Trayectoria, certificaciones y competencias de Facundo Corbalan, consultor senior de SAP HCM Payroll y SuccessFactors Employee Central Payroll en Madrid."
   lang="es"

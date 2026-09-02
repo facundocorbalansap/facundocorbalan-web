@@ -19,8 +19,25 @@ const blocks = [
     ],
   },
   {
-    id: 'expert-support',
+    id: 'multi-country',
     soft: true,
+    title: 'ECP architecture and integration on multi-country rollouts',
+    para: 'For organisations moving payroll for several countries onto ECP, and for partners who need someone holding the whole together while each country brings its own legal specialist.',
+    outcome:
+      'A template the next country can adopt without redesigning the whole, and a single integration that does not break every time a country joins.',
+    includes: [
+      'Rollout model: what is decided once for everyone and what stays local (enterprise structure, groupings, wage type catalogue and naming)',
+      'Architecture from one EC instance to one or several ECP systems: country groupings, data segregation and authorisations',
+      'A single EC to ECP replication design (PTP), with each country variation isolated and monitored',
+      'Functional coordination of the local specialists: what they are asked for, in what format, and how their delivery is reviewed',
+      'Multi-country parallel run plan: shared acceptance criteria and a calendar that does not collapse across countries',
+      'Template governance after go-live: who approves a change that affects everyone, and how the next country joins',
+      'It does not include the legal configuration of each country: that belongs to the local specialist, and my job is to make it fit the whole',
+    ],
+  },
+  {
+    id: 'expert-support',
+    soft: false,
     title: 'ECP expert support / L3 on demand',
     para: 'For AMS teams, partners or clients already running ECP who need specialist escalation when an incident goes beyond standard functional support.',
     outcome: 'Getting the hard problem solved without keeping a senior ECP consultant on full-time allocation.',
@@ -35,7 +52,7 @@ const blocks = [
   },
   {
     id: 'audit',
-    soft: false,
+    soft: true,
     title: 'SAP payroll audit',
     para: 'For anyone who suspects something is off, has inherited an undocumented configuration, or wants a second opinion before a go-live.',
     outcome: 'Knowing exactly where the risk sits before it shows up on a payslip or in an inspection.',
@@ -49,7 +66,7 @@ const blocks = [
   },
   {
     id: 'functional-lead',
-    soft: true,
+    soft: false,
     title: 'Functional lead as a service',
     para: 'For partners and system integrators who need a payroll functional lead with judgement, without opening a permanent role.',
     outcome: 'A project with genuine functional direction, rather than a task split with nobody watching the whole.',
@@ -63,7 +80,7 @@ const blocks = [
   },
   {
     id: 'ams',
-    soft: false,
+    soft: true,
     title: 'Support and enhancements (AMS)',
     para: 'For live operations that need monthly continuity and the ability to react to legal changes.',
     outcome: 'Monthly closes without surprises, and a change history you can actually consult.',
@@ -115,7 +132,7 @@ const limits = [
 
 <Base
   title="SAP Payroll and ECP services · Facundo Corbalan"
-  description="Employee Central Payroll implementation and migration, SAP payroll audit, ECP L3 expert support, functional lead as a service and AMS support."
+  description="Employee Central Payroll implementation and migration, multi-country ECP architecture and integration, SAP payroll audit, ECP L3 expert support, functional lead as a service and AMS support."
   lang="en"
   active="services"
   esPath="/servicios/"
